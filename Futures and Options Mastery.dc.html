@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ivar,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..700,100&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;family=Kalam:wght@400;700&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#f5f2fb;overflow-x:clip}
+*{box-sizing:border-box}
+a{color:inherit}
+a:hover{color:inherit}
+</style>
+</helmet>
+<div style="position:relative;font-family:'Plus Jakarta Sans', Inter, system-ui, sans-serif;font-weight:400;color:#1d1830;background:#f5f2fb">
+
+  <header style="position:absolute;left:0;right:0;top:0;z-index:1000;color:#1d1830">
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;height:34px;padding:0 20px;background:#1d1830;color:#f5f2fb;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;overflow:hidden">
+      <i style="width:7px;height:7px;border-radius:50%;background:rgb(31,164,99);flex:0 0 auto"></i>
+      <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">New batches open — six courses, beginner to advanced</span>
+      <a href="#enroll" style="flex:0 0 auto;color:#ffd93d;text-decoration:none">Enroll now →</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:28px;height:74px;padding:0 clamp(20px,4vw,56px)">
+      <a href="Home.dc.html" aria-label="The Investor Brain — home" style="position:relative;flex:0 0 auto;font-family:Fraunces, Georgia, serif;font-size:26px;font-weight:600;letter-spacing:-0.03em;line-height:1;color:inherit;text-decoration:none">The Investor Brain<svg viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:0;bottom:-9px;width:100%;height:12px;overflow:visible"><path d="M3 9C30 4 70 3 117 7" style="fill:none;stroke:#C8283E;stroke-width:2.4;stroke-linecap:round" vector-effect="non-scaling-stroke"></path></svg></a>
+      <sc-if value="{{ showNav }}" hint-placeholder-val="{{ true }}">
+        <nav aria-label="Primary" style="margin:0 auto 0 12px">
+          <ul style="display:flex;gap:2px;list-style:none;margin:0;padding:0">
+            <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+              <li><a href="{{ n.href }}" style="position:relative;display:flex;align-items:center;gap:6px;padding:10px 13px;border-radius:999px;color:inherit;text-decoration:none;font-size:14.5px;font-weight:500">{{ n.label }}<span style="font-size:10px;opacity:0.6">{{ n.car }}</span><svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:13px;bottom:4px;width:calc(100% - 26px);height:7px;overflow:visible"><path d="M2 6C30 3 70 3 98 5" pathLength="1" style="fill:none;stroke:#C8283E;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:{{ n.dash }}" vector-effect="non-scaling-stroke"></path></svg></a></li>
+            </sc-for>
+          </ul>
+        </nav>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:14px;margin-left:auto">
+        <sc-if value="{{ showTel }}" hint-placeholder-val="{{ true }}">
+          <a href="tel:+910000000000" style="font-family:'DM Mono', ui-monospace, monospace;font-size:12.5px;letter-spacing:0.03em;color:inherit;text-decoration:none;opacity:0.8">+91 XXXXX XXXXX</a>
+        </sc-if>
+        <a href="#enroll" style="display:inline-flex;align-items:center;justify-content:center;padding:0 26px;min-height:46px;border-radius:999px;background:#1d1830;color:#f5f2fb;text-decoration:none;white-space:nowrap;font-size:14px;font-weight:600;letter-spacing:-0.005em;transition:background .35s,color .35s" style-hover="background:#ffd93d;color:#1d1830">Book a free class</a>
+      </div>
+    </div>
+  </header>
+
+  <section data-screen-label="Hero" style="position:relative;overflow:hidden;color:#1d1830;background-image:repeating-linear-gradient(180deg,transparent 0 43px,color-mix(in srgb,#2a1f5c 11%,transparent) 43px 44px)">
+    <i aria-hidden="true" style="position:absolute;top:0;bottom:0;left:clamp(40px,5vw,80px);width:1.5px;background:color-mix(in srgb,#C8283E 50%,transparent)"></i>
+    <div style="display:grid;grid-template-columns:{{ heroCols }};gap:clamp(30px,5vw,90px);align-items:center;max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:clamp(150px,17vh,190px) clamp(20px,4vw,56px) clamp(70px,9vw,120px) calc(clamp(40px,5vw,80px) + clamp(24px,3vw,48px))">
+      <div>
+        <nav aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb,#6d6784 80%,#1d1830)">
+          <span><a href="Home.dc.html" style="color:inherit;text-decoration:none">Home</a><i aria-hidden="true" style="font-style:normal;margin-left:8px;opacity:0.5">/</i></span>
+          <span><a href="Courses.dc.html" style="color:#1d1830;font-weight:500;text-decoration:none">Courses</a></span>
+        </nav>
+        <p style="display:inline-flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin:0;padding:7px 12px 7px 10px;border-radius:4px;border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-left:3px solid #ffd93d;font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase"><i aria-hidden="true" style="width:5px;height:5px;border-radius:1px;background:#ffd93d;display:block;flex:0 0 auto"></i>Advanced Strategies for Consistent Profits</p>
+        <h1 style="margin:14px 0 0;font-family:Fraunces, Georgia, serif;font-weight:560;font-variation-settings:'SOFT' 100;font-size:clamp(46px,5vw,84px);line-height:0.98;letter-spacing:-0.04em;text-wrap:balance">Futures &amp; Options Mastery</h1>
+        <p style="margin:24px 0 0;max-width:560px;font-size:clamp(16.5px,1.2vw,19px);line-height:1.6;color:color-mix(in srgb,#1d1830 80%,#f5f2fb)">Futures, options, the Greeks and hedging — and how to size every trade so you know your risk before you enter. One mentor for experienced investors ready to trade derivatives with a plan.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px">
+          <a href="#enroll" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:0 7px 0 26px;min-height:56px;border-radius:999px;border:1.5px solid transparent;background:#ffd93d;color:#1d1830;text-decoration:none;white-space:nowrap;font-size:15px;font-weight:600;letter-spacing:-0.005em;transition:background .35s,color .35s" style-hover="background:#1d1830;color:#f5f2fb">Book a free class<span aria-hidden="true" style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#ffd93d;rotate:-35deg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></a>
+          <a href="#mentors" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:0 7px 0 26px;min-height:56px;border-radius:999px;border:1.5px solid color-mix(in srgb,#1d1830 22%,transparent);background:color-mix(in srgb,#fff 70%,transparent);color:#1d1830;text-decoration:none;white-space:nowrap;font-size:15px;font-weight:600;letter-spacing:-0.005em;transition:background .35s" style-hover="background:#ffd93d">See the mentors<span aria-hidden="true" style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#fff;rotate:-35deg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></a>
+        </div>
+      </div>
+      <figure style="position:relative;margin:0;padding:14px 14px 0;background:#fff;rotate:2.2deg;box-shadow:0 40px 60px -40px color-mix(in srgb,#140f2a 60%,transparent);clip-path:polygon(0 0,100% 0,100% 96%,94% 98.5%,86% 96.5%,77% 99%,66% 97%,55% 99.5%,44% 97%,33% 99%,22% 96.5%,11% 98.8%,0 96.5%)">
+        <span aria-hidden="true" style="position:absolute;left:18%;top:-26px;z-index:3;width:26px;height:70px"><svg viewBox="0 0 30 80" style="width:100%;height:100%;overflow:visible"><path d="M10 70V16a8 8 0 0116 0v46a13 13 0 01-26 0V22" style="fill:none;stroke:color-mix(in srgb,#1d1830 60%,#6d6784);stroke-width:3.2;stroke-linecap:round"></path></svg></span>
+        <div style="aspect-ratio:4 / 4.3;overflow:hidden;background:#ded8ee"><img src="assets/images/pv3.webp" alt="A mentor and a student working through a lesson" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <figcaption style="padding:14px 6px 34px;font-family:Kalam, cursive;font-weight:700;font-size:22px;color:#C8283E;rotate:-2deg">first class free →</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section data-screen-label="What we cover" style="position:relative;background:#f5f2fb;color:#1d1830">
+    <div style="display:grid;grid-template-columns:{{ sbCols }};gap:clamp(30px,5vw,90px);align-items:start;max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:clamp(60px,7vw,110px) clamp(20px,4vw,56px) 40px">
+      <div>
+        <h2 style="margin:0 0 24px;font-family:Fraunces, Georgia, serif;font-size:clamp(30px,2.8vw,44px);font-weight:560;letter-spacing:-0.03em">What we cover</h2>
+        <ol style="list-style:none;margin:0;padding:0;border-top:2px solid #1d1830">
+          <li style="display:grid;grid-template-columns:44px minmax(0,1fr) 34px;gap:12px;align-items:center;padding:17px 0;border-bottom:1px dashed color-mix(in srgb,#2a1f5c 25%,transparent);font-size:clamp(18px,1.5vw,22px)"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:color-mix(in srgb,#6d6784 80%,#1d1830)">01</span>Futures &amp; options basics — lots, margin &amp; expiry<svg viewBox="0 0 40 30" aria-hidden="true" style="width:28px;height:22px;overflow:visible"><path pathLength="1" d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round" vector-effect="non-scaling-stroke"></path></svg></li>
+          <li style="display:grid;grid-template-columns:44px minmax(0,1fr) 34px;gap:12px;align-items:center;padding:17px 0;border-bottom:1px dashed color-mix(in srgb,#2a1f5c 25%,transparent);font-size:clamp(18px,1.5vw,22px)"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:color-mix(in srgb,#6d6784 80%,#1d1830)">02</span>Calls, puts &amp; option pricing<svg viewBox="0 0 40 30" aria-hidden="true" style="width:28px;height:22px;overflow:visible"><path pathLength="1" d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round" vector-effect="non-scaling-stroke"></path></svg></li>
+          <li style="display:grid;grid-template-columns:44px minmax(0,1fr) 34px;gap:12px;align-items:center;padding:17px 0;border-bottom:1px dashed color-mix(in srgb,#2a1f5c 25%,transparent);font-size:clamp(18px,1.5vw,22px)"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:color-mix(in srgb,#6d6784 80%,#1d1830)">03</span>The Greeks — delta, theta, vega &amp; gamma<svg viewBox="0 0 40 30" aria-hidden="true" style="width:28px;height:22px;overflow:visible"><path pathLength="1" d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round" vector-effect="non-scaling-stroke"></path></svg></li>
+          <li style="display:grid;grid-template-columns:44px minmax(0,1fr) 34px;gap:12px;align-items:center;padding:17px 0;border-bottom:1px dashed color-mix(in srgb,#2a1f5c 25%,transparent);font-size:clamp(18px,1.5vw,22px)"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:color-mix(in srgb,#6d6784 80%,#1d1830)">04</span>Spreads, straddles &amp; strangles<svg viewBox="0 0 40 30" aria-hidden="true" style="width:28px;height:22px;overflow:visible"><path pathLength="1" d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round" vector-effect="non-scaling-stroke"></path></svg></li>
+          <li style="display:grid;grid-template-columns:44px minmax(0,1fr) 34px;gap:12px;align-items:center;padding:17px 0;border-bottom:1px dashed color-mix(in srgb,#2a1f5c 25%,transparent);font-size:clamp(18px,1.5vw,22px)"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:color-mix(in srgb,#6d6784 80%,#1d1830)">05</span>Hedging a stock portfolio with options<svg viewBox="0 0 40 30" aria-hidden="true" style="width:28px;height:22px;overflow:visible"><path pathLength="1" d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round" vector-effect="non-scaling-stroke"></path></svg></li>
+          <li style="display:grid;grid-template-columns:44px minmax(0,1fr) 34px;gap:12px;align-items:center;padding:17px 0;border-bottom:1px dashed color-mix(in srgb,#2a1f5c 25%,transparent);font-size:clamp(18px,1.5vw,22px)"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:color-mix(in srgb,#6d6784 80%,#1d1830)">06</span>Position sizing, risk limits &amp; trade journals<svg viewBox="0 0 40 30" aria-hidden="true" style="width:28px;height:22px;overflow:visible"><path pathLength="1" d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round" vector-effect="non-scaling-stroke"></path></svg></li>
+        </ol>
+      </div>
+      <aside style="position:{{ sbCardPos }};top:{{ sbCardTop }};max-width:520px;padding:26px 26px 24px;border-radius:14px;background-color:#ffd93d;rotate:-1.2deg;background-image:repeating-linear-gradient(180deg,transparent 0 31px,color-mix(in srgb,#1d1830 10%,transparent) 31px 32px);box-shadow:0 30px 50px -34px color-mix(in srgb,#140f2a 60%,transparent)">
+        <p style="margin:0 0 14px;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase">At a glance</p>
+        <dl style="margin:0 0 20px;display:grid;gap:12px">
+          <div style="margin:0"><dt style="font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7">Level</dt><dd style="margin:3px 0 0;font-family:Fraunces, Georgia, serif;font-size:21px;font-weight:560;letter-spacing:-0.015em">Advanced</dd></div>
+          <div style="margin:0"><dt style="font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7">Course fee</dt><dd style="margin:3px 0 0;font-family:Fraunces, Georgia, serif;font-size:21px;font-weight:560;letter-spacing:-0.015em">₹15,000</dd></div>
+          <div style="margin:0"><dt style="font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7">Format</dt><dd style="margin:3px 0 0;font-family:Fraunces, Georgia, serif;font-size:21px;font-weight:560;letter-spacing:-0.015em">One to one · online or in class</dd></div>
+        </dl>
+        <a href="#enroll" onClick="{{ pickThis }}" style="display:flex;align-items:center;justify-content:center;gap:14px;width:100%;padding:0 7px 0 26px;min-height:56px;border-radius:999px;background:#ffd93d;border:1.5px solid #1d1830;color:#1d1830;text-decoration:none;white-space:nowrap;font-size:15px;font-weight:600;transition:background .35s,color .35s" style-hover="background:#1d1830;color:#f5f2fb">Enroll in this course<span aria-hidden="true" style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#ffd93d;rotate:-35deg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></a>
+      </aside>
+    </div>
+    <div id="mentors" style="max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:40px clamp(20px,4vw,56px) clamp(90px,10vw,140px)">
+      <h2 style="margin:0 0 24px;font-family:Fraunces, Georgia, serif;font-size:clamp(30px,2.8vw,44px);font-weight:560;letter-spacing:-0.03em">Mentors for this course</h2>
+      <ul style="display:grid;grid-template-columns:{{ mentorCols }};gap:18px;list-style:none;margin:0;padding:0">
+        <li><a href="#enroll" style="display:flex;flex-direction:column;gap:6px;padding:10px 10px 16px;border-radius:14px;background:#fff;color:#1d1830;text-decoration:none;transition:rotate .4s,translate .4s;box-shadow:0 20px 40px -30px color-mix(in srgb,#140f2a 55%,transparent)" style-hover="rotate:-1.5deg;translate:0 -4px"><img src="assets/images/mentor1.webp" alt="Mentor name, mentor" style="width:100%;aspect-ratio:4 / 4.4;object-fit:cover;object-position:50% 25%;border-radius:9px;margin-bottom:8px"><b style="font-family:Fraunces, Georgia, serif;font-size:21px;font-weight:560;letter-spacing:-0.02em;padding:0 4px">Mentor name</b><span style="font-size:14px;color:color-mix(in srgb,#6d6784 80%,#1d1830);padding:0 4px">Derivatives trading</span><em style="font-style:normal;font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.04em;padding:0 4px">Beginner batches</em></a></li>
+        <li><a href="#enroll" style="display:flex;flex-direction:column;gap:6px;padding:10px 10px 16px;border-radius:14px;background:#fff;color:#1d1830;text-decoration:none;transition:rotate .4s,translate .4s;box-shadow:0 20px 40px -30px color-mix(in srgb,#140f2a 55%,transparent)" style-hover="rotate:-1.5deg;translate:0 -4px"><img src="assets/images/mentor2.webp" alt="Mentor name, mentor" style="width:100%;aspect-ratio:4 / 4.4;object-fit:cover;object-position:50% 25%;border-radius:9px;margin-bottom:8px"><b style="font-family:Fraunces, Georgia, serif;font-size:21px;font-weight:560;letter-spacing:-0.02em;padding:0 4px">Mentor name</b><span style="font-size:14px;color:color-mix(in srgb,#6d6784 80%,#1d1830);padding:0 4px">Options strategies</span><em style="font-style:normal;font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.04em;padding:0 4px">Beginner batches</em></a></li>
+        <li><a href="#enroll" style="display:flex;flex-direction:column;gap:6px;padding:10px 10px 16px;border-radius:14px;background:#fff;color:#1d1830;text-decoration:none;transition:rotate .4s,translate .4s;box-shadow:0 20px 40px -30px color-mix(in srgb,#140f2a 55%,transparent)" style-hover="rotate:-1.5deg;translate:0 -4px"><img src="assets/images/mentor3.webp" alt="Mentor name, mentor" style="width:100%;aspect-ratio:4 / 4.4;object-fit:cover;object-position:50% 25%;border-radius:9px;margin-bottom:8px"><b style="font-family:Fraunces, Georgia, serif;font-size:21px;font-weight:560;letter-spacing:-0.02em;padding:0 4px">Mentor name</b><span style="font-size:14px;color:color-mix(in srgb,#6d6784 80%,#1d1830);padding:0 4px">Risk management</span><em style="font-style:normal;font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.04em;padding:0 4px">Weekend batches</em></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section data-screen-label="Reviews" ref="{{ twvRef }}" style="position:relative;background:#f5f2fb;color:#1d1830;background-image:radial-gradient(color-mix(in srgb,#2a1f5c 12%,transparent) 1px,transparent 1.5px);background-size:22px 22px">
+    <div style="max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:clamp(90px,11vw,150px) clamp(20px,4vw,56px) clamp(100px,12vw,170px)">
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:clamp(50px,5vw,80px)">
+        <p style="display:inline-flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin:0;padding:7px 12px 7px 10px;border-radius:4px;border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-left:3px solid #ffd93d;font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase"><i aria-hidden="true" style="width:5px;height:5px;border-radius:1px;background:#ffd93d;display:block;flex:0 0 auto"></i>Students</p>
+        <h2 style="margin:14px 0 0;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(42px,4.6vw,76px);line-height:1.02;letter-spacing:-0.04em;text-wrap:balance">Notes from the trading <span style="position:relative;display:inline-block;z-index:0">desk.<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:-14%;top:-22%;width:128%;height:150%;overflow:visible;pointer-events:none;z-index:-1"><path d="M150 12C112 2 42 4 16 22C-6 38 12 64 64 72C116 79 184 70 194 46C203 24 172 9 120 8C92 7 66 10 48 16" style="fill:none;stroke:#C8283E;stroke-width:3.2;stroke-linecap:round" vector-effect="non-scaling-stroke"></path></svg></span></h2>
+        <p style="display:inline-flex;align-items:center;gap:10px;margin:20px 0 0;padding:9px 16px;border-radius:999px;background:#fff;font-family:'DM Mono', ui-monospace, monospace;font-size:12px;letter-spacing:0.04em"><span aria-hidden="true" style="display:flex;color:#f5a623"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.4 9.6l6.7-.9z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.4 9.6l6.7-.9z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.4 9.6l6.7-.9z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.4 9.6l6.7-.9z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.4 9.6l6.7-.9z"></path></svg></span>What our students say</p>
+      </div>
+      <ul style="columns:3 280px;column-gap:clamp(20px,2.4vw,40px);list-style:none;margin:0;padding:12px 0 0">
+        <sc-for list="{{ notes }}" as="n" hint-placeholder-count="6">
+          <li onMouseEnter="{{ n.onEnter }}" onMouseLeave="{{ n.onLeave }}" style="position:relative;display:inline-block;width:100%;box-sizing:border-box;break-inside:avoid;margin:{{ n.margin }};padding:{{ n.pad }};background:{{ n.bg }};color:#1d1830;border-radius:2px 2px 18px 2px;box-shadow:{{ n.shadow }};rotate:{{ n.rot }};opacity:{{ n.op }};translate:{{ n.tr }};scale:{{ n.sc }};transition:opacity .3s ease {{ n.d }},translate .7s cubic-bezier(.3,1.5,.5,1) {{ n.d }},scale .7s cubic-bezier(.3,1.5,.5,1) {{ n.d }},rotate .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s">
+            <span aria-hidden="true" style="position:absolute;left:50%;top:-9px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff7a8e,#C8283E 60%,#9c1c2e);box-shadow:rgba(0,0,0,.35) 0 4px 6px -2px"></span>
+            <blockquote style="margin:0;font-family:Kalam, cursive;font-weight:400;font-size:clamp(19px,1.45vw,23px);line-height:1.32">{{ n.q }}</blockquote>
+            <footer style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:20px">
+              <cite style="font-style:normal;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb,#1d1830 70%,transparent)">{{ n.who }}</cite>
+              <b style="font-family:Kalam, cursive;font-weight:700;font-size:20px;color:#C8283E;white-space:nowrap;rotate:-4deg">{{ n.tag }}</b>
+            </footer>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section id="enroll" data-screen-label="Enroll" style="position:relative;isolation:isolate;overflow:hidden;color:#1d1830;background:#140f2a;z-index:12">
+    <div style="position:absolute;inset:0;z-index:-2"><img src="assets/images/cta.webp" alt="Three students laughing over a laptop at a study table" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div aria-hidden="true" style="position:absolute;inset:-4%;z-index:-1;background:#ffd93d;clip-path:{{ ctaClip }}"></div>
+    <div style="display:grid;grid-template-columns:{{ ctaCols }};gap:clamp(30px,5vw,90px);align-items:center;min-height:min(100vh,940px);max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:clamp(90px,11vw,150px) clamp(20px,4vw,56px)">
+      <div style="max-width:600px">
+        <h2 style="margin:0;font-family:Fraunces, Georgia, serif;font-weight:560;font-variation-settings:'SOFT' 100;font-size:clamp(52px,5.6vw,96px);line-height:0.98;letter-spacing:-0.04em">Your first class is on <span style="position:relative;display:inline-block;z-index:0">us.<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:-14%;top:-22%;width:128%;height:150%;overflow:visible;pointer-events:none;z-index:-1"><path d="M150 12C112 2 42 4 16 22C-6 38 12 64 64 72C116 79 184 70 194 46C203 24 172 9 120 8C92 7 66 10 48 16" style="fill:none;stroke:#C8283E;stroke-width:3.2;stroke-linecap:round" vector-effect="non-scaling-stroke"></path></svg></span></h2>
+        <p style="margin:24px 0 0;max-width:430px;font-size:17.5px;line-height:1.6">Tell us the course and your experience level. We'll call within one working day with a mentor and a batch time that suits you.</p>
+      </div>
+      <div style="padding:clamp(24px,2.6vw,38px);border-radius:18px;background:#fff;box-shadow:0 40px 80px -40px color-mix(in srgb,#140f2a 80%,transparent)">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form novalidate="" onSubmit="{{ onSubmit }}">
+            <p style="margin:0 0 18px;font-family:Fraunces, Georgia, serif;font-size:26px;font-weight:560;letter-spacing:-0.02em">Book the free class</p>
+            <label style="position:relative;display:block;margin-bottom:14px">
+              <input type="text" autocomplete="name" value="{{ fName }}" onChange="{{ onName }}" onFocus="{{ focusName }}" onBlur="{{ blurField }}" style="display:block;width:100%;height:58px;padding:22px 16px 6px;border:1.5px solid {{ nameBorder }};border-radius:12px;background:#fff;color:#1d1830;font:inherit;font-size:16px;outline:none;transition:border-color .3s">
+              <span style="position:absolute;left:17px;top:19px;font-size:15px;color:{{ nameLblColor }};pointer-events:none;transform-origin:0 0;translate:{{ nameLblY }};scale:{{ nameLblS }};transition:translate .25s,scale .25s,color .25s">Your name</span>
+            </label>
+            <label style="position:relative;display:block;margin-bottom:14px">
+              <input type="text" autocomplete="email" value="{{ fContact }}" onChange="{{ onContact }}" onFocus="{{ focusContact }}" onBlur="{{ blurField }}" style="display:block;width:100%;height:58px;padding:22px 16px 6px;border:1.5px solid {{ contactBorder }};border-radius:12px;background:#fff;color:#1d1830;font:inherit;font-size:16px;outline:none;transition:border-color .3s">
+              <span style="position:absolute;left:17px;top:19px;font-size:15px;color:{{ contactLblColor }};pointer-events:none;transform-origin:0 0;translate:{{ contactLblY }};scale:{{ contactLblS }};transition:translate .25s,scale .25s,color .25s">Email or phone</span>
+            </label>
+            <div style="display:grid;grid-template-columns:{{ formRow }};gap:0 12px">
+              <label style="position:relative;display:block;margin-bottom:14px">
+                <select value="{{ fCourse }}" onChange="{{ onCourse }}" style="display:block;width:100%;height:58px;padding:22px 34px 6px 16px;border:1.5px solid #ded8ee;border-radius:12px;background:#fff;color:#1d1830;font:inherit;font-size:16px;appearance:none;-webkit-appearance:none;outline:none;text-overflow:ellipsis">
+                  <option value=""></option>
+                  <sc-for list="{{ courseOpts }}" as="o" hint-placeholder-count="7"><option value="{{ o }}">{{ o }}</option></sc-for>
+                </select>
+                <span style="position:absolute;left:17px;top:19px;font-size:15px;color:{{ courseLblColor }};pointer-events:none;transform-origin:0 0;translate:{{ courseLblY }};scale:{{ courseLblS }};transition:translate .25s,scale .25s">Course</span>
+                <i aria-hidden="true" style="position:absolute;right:16px;top:25px;width:8px;height:8px;border-right:1.6px solid #1d1830;border-bottom:1.6px solid #1d1830;rotate:45deg;pointer-events:none"></i>
+              </label>
+              <label style="position:relative;display:block;margin-bottom:14px">
+                <select value="{{ fLevel }}" onChange="{{ onLevel }}" style="display:block;width:100%;height:58px;padding:22px 34px 6px 16px;border:1.5px solid #ded8ee;border-radius:12px;background:#fff;color:#1d1830;font:inherit;font-size:16px;appearance:none;-webkit-appearance:none;outline:none">
+                  <option value=""></option>
+                  <sc-for list="{{ levelOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for>
+                </select>
+                <span style="position:absolute;left:17px;top:19px;font-size:15px;color:{{ levelLblColor }};pointer-events:none;transform-origin:0 0;translate:{{ levelLblY }};scale:{{ levelLblS }};transition:translate .25s,scale .25s">Experience</span>
+                <i aria-hidden="true" style="position:absolute;right:16px;top:25px;width:8px;height:8px;border-right:1.6px solid #1d1830;border-bottom:1.6px solid #1d1830;rotate:45deg;pointer-events:none"></i>
+              </label>
+            </div>
+            <sc-if value="{{ courseTotal }}" hint-placeholder-val="{{ false }}">
+              <p style="display:flex;justify-content:space-between;gap:12px;margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#f5f2fb;font-family:'DM Mono', ui-monospace, monospace;font-size:12.5px;letter-spacing:0.03em"><span>Course fee</span><b style="font-weight:500">{{ courseTotal }}</b></p>
+            </sc-if>
+            <button type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;width:100%;margin-top:6px;padding:0 7px 0 26px;min-height:56px;border:0;border-radius:999px;background:#ffd93d;color:#1d1830;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;transition:background .35s,color .35s" style-hover="background:#1d1830;color:#f5f2fb">Book my free class<span style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#ffd93d;rotate:-35deg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></button>
+            <p style="margin:14px 0 0;text-align:center;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.06em;color:color-mix(in srgb,#6d6784 80%,#1d1830)">No card needed · no contract</p>
+          </form>
+        </sc-if>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;justify-items:center;gap:12px;padding:30px 10px;text-align:center">
+            <svg viewBox="0 0 40 30" style="width:64px;height:48px;overflow:visible"><path d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round" vector-effect="non-scaling-stroke"></path></svg>
+            <p style="margin:0;font-family:Kalam, cursive;font-weight:700;font-size:24px">Thanks — we'll call you within one working day.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position:relative;overflow:hidden;background:#2a1f5c;color:#fff;background-image:radial-gradient(120% 80% at 80% 0%,color-mix(in srgb,#fff 7%,transparent),transparent 60%)">
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <span aria-hidden="true" style="position:absolute;right:clamp(28px,5vw,80px);top:0;bottom:0;width:16px;background:#140f2a;box-shadow:inset 3px 0 0 color-mix(in srgb,#fff 8%,transparent)"></span>
+    </sc-if>
+    <div style="position:relative;max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:clamp(80px,9vw,120px) {{ ftPadR }} 30px clamp(20px,4vw,56px)">
+      <div style="display:grid;grid-template-columns:{{ ftCols }};gap:clamp(30px,4vw,64px)">
+        <div>
+          <p style="margin:0;max-width:300px;font-size:18px;line-height:1.5;color:color-mix(in srgb,#fff 88%,transparent)">One-to-one stock market courses — from your first share to futures &amp; options.</p>
+          <div style="display:grid;gap:8px;margin-top:26px;font-family:'DM Mono', ui-monospace, monospace;font-size:12.5px;letter-spacing:0.03em;color:color-mix(in srgb,#fff 70%,transparent)">
+            <a href="tel:+910000000000" style="color:#fff;text-decoration:none" style-hover="color:#ffd93d">+91 XXXXX XXXXX</a>
+            <a href="mailto:hello@theinvestorbrain.in" style="color:#fff;text-decoration:none" style-hover="color:#ffd93d">hello@theinvestorbrain.in</a>
+            <span>Your address, City, State – PIN</span>
+            <span>Mon–Sat · 08:00–20:00</span>
+          </div>
+        </div>
+        <nav aria-label="Footer" style="display:grid;grid-template-columns:{{ ftNavCols }};gap:20px">
+          <sc-for list="{{ ftNav }}" as="col" hint-placeholder-count="3">
+            <div>
+              <p style="margin:0 0 16px;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb,#fff 55%,transparent)">{{ col.title }}</p>
+              <ul style="list-style:none;margin:0;padding:0;display:grid;gap:10px">
+                <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5">
+                  <li><a href="{{ l.href }}" style="color:#fff;text-decoration:none;font-size:15px">{{ l.label }}</a></li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-for>
+        </nav>
+        <div>
+          <p style="margin:0 0 14px;font-family:Kalam, cursive;font-weight:700;font-size:24px;color:#ffd93d">A free market note, every Sunday</p>
+          <label style="position:relative;display:block;margin-bottom:12px">
+            <input type="email" autocomplete="email" placeholder=" " style="display:block;width:100%;height:56px;padding:22px 16px 6px;border:1.5px solid color-mix(in srgb,#fff 25%,transparent);border-radius:12px;background:color-mix(in srgb,#fff 6%,transparent);color:#fff;font:inherit;font-size:16px;outline:none">
+            <span style="position:absolute;left:17px;top:18px;font-size:15px;color:color-mix(in srgb,#fff 65%,transparent);pointer-events:none">Your email</span>
+          </label>
+          <button type="button" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;width:100%;padding:0 7px 0 26px;min-height:56px;border:0;border-radius:999px;background:#ffd93d;color:#1d1830;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;transition:background .35s,color .35s" style-hover="background:#fff">Send it<span style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#ffd93d;rotate:-35deg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></button>
+        </div>
+      </div>
+      <p aria-label="The Investor Brain" style="position:relative;margin:clamp(50px,6vw,90px) 0 0;font-family:Fraunces, Georgia, serif;font-size:clamp(44px,9.5vw,190px);line-height:0.86;font-weight:600;letter-spacing:-0.05em;color:#ffd93d">The Investor Brain</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:30px;padding-top:20px;border-top:1px solid color-mix(in srgb,#fff 15%,transparent);font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.04em;color:color-mix(in srgb,#fff 60%,transparent)">
+        <span>© 2026 The Investor Brain. All rights reserved.</span>
+        <span style="display:flex;gap:18px"><a href="https://instagram.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">Instagram</a><a href="https://youtube.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">YouTube</a></span>
+        <span>Investing involves market risk.</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: 1280, hov: -1, step: 0, mx: 0, my: 0, fName: '', fContact: '', fCourse: '', fLevel: '', focus: '', sent: false, hovCard: -1, flip: -1, pp: 0, pp2: 0, hovS: -1, rv: 0, vOn: false, hovN: -1, faqOpen: [0] };
+  listRef = React.createRef();
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => {
+        this.raf = 0;
+        const prog = ref => {
+          const el = ref.current; if (!el) return 0;
+          const b = el.getBoundingClientRect(), span = b.height - window.innerHeight;
+          return span > 0 ? Math.min(1, Math.max(0, -b.top / span)) : 0;
+        };
+        const pp = prog(this.boxRef), pp2 = prog(this.twmRef);
+        const vh = window.innerHeight;
+        const tb = this.twbRef.current ? this.twbRef.current.getBoundingClientRect() : null;
+        const rv = tb ? Math.min(1, Math.max(0, (vh - tb.top) / vh)) : 1;
+        const tv = this.twvRef.current ? this.twvRef.current.getBoundingClientRect() : null;
+        const vOn = this.state.vOn || (tv ? tv.top < vh * 0.8 : false);
+        const st = this.state;
+        if (Math.abs(pp - st.pp) > 0.001 || Math.abs(pp2 - st.pp2) > 0.001 || Math.abs(rv - st.rv) > 0.001 || vOn !== st.vOn) this.setState({ pp, pp2, rv, vOn });
+      });
+    };
+    document.addEventListener('scroll', this.onScroll, true);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('scroll', this.onScroll, true);
+  }
+  boxRef = React.createRef();
+  twmRef = React.createRef();
+  twbRef = React.createRef();
+  twvRef = React.createRef();
+
+  extraVals(narrow) {
+    const s = this.state;
+    const k = 1 - s.rv, ke = k * k;
+    const fly = [
+      ['assets/images/fly1.webp', { l: '6%', t: '9%' }, -60, -50, -6, -20],
+      ['assets/images/fly2.webp', { r: '6%', t: '7%' }, 60, -50, 5, 20],
+      ['assets/images/fly3.avif', { l: '9%', b: '7%' }, -60, 50, 4, 18],
+      ['assets/images/fly4.webp', { r: '8%', b: '9%' }, 60, 50, -5, -18],
+    ].map(([img, p, tx, ty, r0, rk]) => ({
+      img, l: p.l || 'auto', r: p.r || 'auto', t: p.t || 'auto', b: p.b || 'auto',
+      tr: `${(ke * tx).toFixed(2)}vw ${(ke * ty).toFixed(2)}vh`, rot: (r0 + k * rk).toFixed(2) + 'deg',
+    }));
+    const noteData = [
+      ["#ffd93d", -4, "Options looked like gambling to me. Now I know exactly what I am risking on every trade.", "Student, Futures & Options Mastery", "Risk defined"],
+      ["#FFB8C8", 3, "The Greeks finally clicked. Theta decay is no longer a surprise on expiry day.", "Student, Futures & Options Mastery", "Greeks"],
+      ["#BDE8D2", -2, "Learned to hedge my long-term portfolio instead of selling in a panic.", "Student, Futures & Options Mastery", "Hedged"],
+      ["#C9D6FF", 5, "Spreads changed everything — defined risk, defined reward.", "Student, Futures & Options Mastery", "Spreads"],
+      ["#FFD6A5", -3, "The trade journal habit alone was worth the fee.", "Student, Futures & Options Mastery", "Journal"],
+      ["#fff", 2, "Tough course, brilliant mentor. Come with the basics done.", "Student, Futures & Options Mastery", "★★★★★"],
+    ];
+    const notes = noteData.map((n, i) => {
+      const hv = s.hovN === i, on = s.vOn || narrow;
+      return {
+        bg: n[0], q: n[2], who: n[3], tag: n[4],
+        rot: hv ? '0deg' : n[1] + 'deg', op: on ? 1 : 0,
+        tr: !on ? '0 -40px' : hv ? '0 -6px' : '0 0', sc: on ? 1 : 1.12, d: hv ? '0ms' : (200 + i * 130) + 'ms',
+        margin: narrow ? '0 0 clamp(28px,3vw,44px)' : (i === 1 ? '40px 0 clamp(28px,3vw,44px)' : i === 4 ? '0 0 clamp(28px,3vw,44px) 18px' : '0 0 clamp(28px,3vw,44px)'),
+        pad: i === 3 ? '30px 26px 34px' : '30px 26px 22px',
+        shadow: hv ? '0 36px 40px -26px color-mix(in srgb,#140f2a 60%,transparent)' : '0 22px 30px -22px color-mix(in srgb,#140f2a 55%,transparent),0 1px 1px color-mix(in srgb,#140f2a 12%,transparent)',
+        onEnter: () => this.setState({ hovN: i }), onLeave: () => this.setState({ hovN: -1 }),
+      };
+    });
+    const faqData = [
+      ['How does the free first class work?', 2, "It's a real class with a mentor matched to your course and level, plus a short check of what you already know. No card needed, and no obligation to continue."],
+      ['Which course should I start with?', 3, 'If you are new to the market, start with Stock Market Mastery or Mutual Funds Magic. If you already invest, the free call helps you pick between the analysis courses and Futures & Options.'],
+      ['Online or in class?', 2, 'Both. Online classes use a shared screen with live charts. Most students mix the two.'],
+      ['Do I need a demat account first?', 2, 'No. We walk you through opening one during the beginner course, and you can practise on paper before using real money.'],
+      ['Will you give me stock tips?', 3, 'No. The courses teach you how to analyse and decide for yourself. Investing carries market risk, and every decision stays yours.'],
+      ['Can I pay for courses one at a time?', 1, 'Yes. Each course is priced on its own, or you can take all six for ₹48,600.'],
+    ];
+    const open = s.faqOpen;
+    const faqs = faqData.map((f, i) => {
+      const o = open.includes(i);
+      return {
+        n: i + 1, q: f[0], m: f[1], a: f[2], exp: o ? 'true' : 'false', rows: o ? '1fr' : '0fr', dash: o ? 0 : 1,
+        onToggle: () => this.setState(st => ({ faqOpen: st.faqOpen.includes(i) ? st.faqOpen.filter(x => x !== i) : [...st.faqOpen, i] })),
+      };
+    });
+    return {
+      twbRef: this.twbRef, twvRef: this.twvRef, flyPhotos: fly, showFly: s.w >= 1200,
+      twbLoop: s.rv > 0.6 || narrow ? 0 : 1,
+      twbPad: narrow ? '96px 20px' : 'clamp(80px,10vh,120px) clamp(20px,4vw,56px)',
+      twbStatsDir: narrow ? 'column' : 'row',
+      notes,
+      faqs, faqScore: faqData.reduce((a, f, i) => a + (open.includes(i) ? f[1] : 0), 0), faqTotal: faqData.reduce((a, f) => a + f[1], 0),
+      faqCols: narrow ? '1fr' : 'minmax(0,.75fr) minmax(0,1.25fr)',
+      faqPad: narrow ? '80px 20px' : 'clamp(90px,11vw,150px) clamp(20px,4vw,56px)',
+      faqSidePos: narrow ? 'relative' : 'sticky',
+      faqBtnCols: narrow ? '34px minmax(0,1fr) 30px' : '44px minmax(0,1fr) 44px',
+      faqAPad: narrow ? '0px' : '54px',
+      paperLine: narrow ? 'none' : 'linear-gradient(90deg,transparent calc(100% - 64px),color-mix(in srgb,#C8283E 45%,transparent) calc(100% - 64px) calc(100% - 63px),transparent calc(100% - 63px))',
+    };
+  }
+
+  renderVals() {
+    const s = this.state, w = s.w;
+    const narrow = w < 810, wide = !narrow, mid = w < 1100;
+    const ink = '#1d1830', mut = 'color-mix(in srgb,#6d6784 80%,#1d1830)';
+    const raw = [
+      ['Stock Market Mastery', 'From Beginner to Confident Investor (New Edition)', 5500, 'Beginner', 'assets/images/pv1.webp'],
+      ['Mutual Funds Magic', 'Build Wealth the Smart & Simple Way', 4800, 'Beginner', 'assets/images/pv2.jpg'],
+      ['Futures & Options Mastery', 'Advanced Strategies for Consistent Profits', 15000, 'Advanced', 'assets/images/pv3.webp'],
+      ['Value Investing Secrets', 'Spot Undervalued Stocks Like a Pro', 4300, 'Intermediate', 'assets/images/pv4.jpg'],
+      ['Technical Analysis Power', 'Read Charts & Trade with Precision', 9000, 'Intermediate', 'assets/images/pv5.webp'],
+      ['Fundamental Analysis Edge', 'Decode Companies & Invest with Confidence', 10000, 'Intermediate', 'assets/images/pv6.webp'],
+    ];
+    const inr = n => '₹' + n.toLocaleString('en-IN');
+    const courses = raw.map((r, i) => ({
+      n: String(i + 1).padStart(2, '0'), name: r[0], sub: r[1], price: inr(r[2]), level: r[3],
+      dash: s.hov === i ? 0 : 1, pad: s.hov === i ? '14px' : '0px', goBg: s.hov === i ? '#ffd93d' : '#fff',
+      onEnter: () => this.setState({ hov: i }),
+      onPick: () => this.setState({ fCourse: r[0] }),
+    }));
+    const stepsRaw = [
+      ['Free counselling call', 'A 30-minute call to find the right course for your level — no cost, no commitment.', 'Day 1', 'assets/images/step1.webp'],
+      ['Matched with a mentor', 'We pair you with a mentor for your course and schedule. You meet them before you pay.', 'Day 2', 'assets/images/step2.webp'],
+      ['A plan on paper', 'Your course goals, week by week, written down and shared with you.', 'Week 1', 'assets/images/step3.webp'],
+      ['Progress you can see', 'A short recap after every class and a check-in every few weeks on what you can now do on your own.', 'Every week', 'assets/images/step4.webp'],
+    ];
+    const nS = stepsRaw.length;
+    const u2 = Math.min(1, Math.max(0, (s.pp2 - 0.05) / 0.82));
+    const curStep = !this.twmRef.current ? s.step : narrow ? 0 : Math.min(nS - 1, Math.max(0, Math.floor(u2 * nS + 0.05)));
+    const stepFigs = stepsRaw.map((r, i) => {
+      const k = narrow ? (i === 0 ? 1 : 0) : Math.min(1, Math.max(0, u2 * nS - i + 0.55));
+      return {
+        img: r[3], num: String(i + 1), when: r[2], z: i + 1,
+        clip: i === 0 || narrow ? 'none' : `polygon(${(118 - k * 136).toFixed(2)}% 0,118% 0,118% 100%,${(100 - k * 136).toFixed(2)}% 100%)`,
+        op: narrow && i > 0 ? 0 : 1, sc: (1.12 - k * 0.12).toFixed(4),
+      };
+    });
+    const steps = stepsRaw.map((r, i) => {
+      const cur = i === curStep, done = i < curStep;
+      return {
+        n: String(i + 1).padStart(2, '0'), title: r[0], desc: r[1], when: r[2],
+        noColor: cur ? '#fff' : 'color-mix(in srgb,#fff 55%,transparent)',
+        bColor: cur || done ? '#fff' : 'color-mix(in srgb,#fff 55%,transparent)',
+        tick: done ? 0 : 1, rows: cur || narrow ? '1fr' : '0fr', mt: cur || narrow ? '8px' : '0px',
+        wBg: cur ? '#ffd93d' : 'transparent', wColor: cur ? ink : 'color-mix(in srgb,#fff 60%,transparent)',
+        wBorder: cur ? '#ffd93d' : 'color-mix(in srgb,#fff 22%,transparent)',
+        onPick: () => this.setState({ step: i }),
+      };
+    });
+    const lbl = (key, filled) => {
+      const up = filled || s.focus === key;
+      return { y: up ? '0 -11px' : '0 0', sc: up ? '0.74' : '1', c: up ? '#2a1f5c' : mut };
+    };
+    const ln = lbl('name', s.fName), lc = lbl('contact', s.fContact), lco = lbl('course', s.fCourse), ll = lbl('level', s.fLevel);
+    const sel = raw.find(r => r[0] === s.fCourse);
+    const courseTotal = s.fCourse === 'All six courses' ? '₹48,600' : sel ? inr(sel[2]) : '';
+    const hovC = raw[Math.max(0, s.hov)];
+    const u = Math.min(1, Math.max(0, (s.pp - 0.04) / 0.8));
+    const grid = [[17, 25, -3], [50, 23, 2], [83, 26, -2], [17, 75, 2], [50, 77, -2], [83, 74, 3]];
+    const sCards = raw.map((r, i) => {
+      const ki = Math.min(1, Math.max(0, u * 7.2 - i * 1.05)), e = 1 - Math.pow(1 - ki, 3);
+      const [gx, gy, gr] = grid[i], hv = s.hovS === i;
+      const y = 104 - i * 2.4 + (gy - 104 + i * 2.4) * e;
+      return {
+        n: String(i + 1).padStart(2, '0'), name: r[0], level: r[3], price: inr(r[2]), img: r[4],
+        pos: narrow ? 'relative' : 'absolute', w: narrow ? 'auto' : 'min(29cqw,36cqh)',
+        tr: narrow ? 'none' : `calc(50cqw + ${((gx - 50) * e).toFixed(3)}cqw - 50%) calc(${y.toFixed(3)}cqh - 50%)`,
+        rot: narrow ? '0deg' : (((i - 2.5) * 5 * (1 - e) + gr * e).toFixed(3) + 'deg'),
+        sc: hv ? 1.04 : 1, z: hv ? 20 : 'auto', dash: hv ? 0 : 1, imgSc: hv ? 1.07 : 1,
+        shadow: hv ? '0 40px 70px -30px color-mix(in srgb,#140f2a 65%,transparent)' : '0 26px 50px -30px color-mix(in srgb,#140f2a 55%,transparent),0 1px 0 color-mix(in srgb,#1d1830 8%,transparent)',
+        onEnter: () => this.setState({ hovS: i }), onLeave: () => this.setState({ hovS: -1 }),
+        onPick: () => this.setState({ fCourse: r[0] }),
+      };
+    });
+    const deckImgs = ['assets/images/pv1.webp', 'assets/images/card2.jpg', 'assets/images/pv3.webp'];
+    const deck = [0, 4, 2].map((ci, i) => {
+      const r = raw[ci], hv = s.hovCard === i, fl = s.flip === i, up = hv || fl;
+      return {
+        name: r[0], sub: r[1], price: inr(r[2]), level: r[3], img: deckImgs[i], flipped: fl ? 'true' : 'false',
+        rot: up ? '0deg' : ((i - 1) * 6) + 'deg', ty: up ? '0 -30px' : (i === 1 ? '0 -18px' : '0 0'), z: up ? 3 : 1,
+        imgScale: hv ? '1.06' : '1', flipT: fl ? 'rotateY(180deg)' : 'none',
+        frontVis: fl ? 'hidden' : 'visible', backVis: fl ? 'visible' : 'hidden', btnZ: fl ? 0 : 2,
+        onEnter: () => this.setState({ hovCard: i }), onLeave: () => this.setState({ hovCard: -1 }),
+        onFlip: () => this.setState({ flip: s.flip === i ? -1 : i }),
+        onEnroll: () => this.setState({ fCourse: r[0] }),
+      };
+    });
+    return {
+      ...this.extraVals(narrow),
+      sbCols: mid ? 'minmax(0,1fr)' : 'minmax(0,1.3fr) minmax(0,0.7fr)', sbCardPos: mid ? 'relative' : 'sticky', sbCardTop: mid ? '0px' : '100px',
+      mentorCols: narrow ? '1fr 1fr' : mid ? 'repeat(3,minmax(0,1fr))' : 'repeat(4,minmax(0,1fr))',
+      pickThis: () => this.setState({ fCourse: "Futures & Options Mastery" }),
+      sCards, boxRef: this.boxRef, twmRef: this.twmRef, stepFigs,
+      twmH: narrow ? 'auto' : `calc(${nS} * 90vh + 60vh)`, twmGridH: narrow ? 'auto' : '100%',
+      twmPad: narrow ? '80px 20px' : 'clamp(70px,11vh,120px) clamp(20px,4vw,56px)',
+      twmMediaH: narrow ? 'auto' : 'min(72vh,640px)', twmMediaAR: narrow ? '4 / 3' : 'auto', twmMediaOrder: narrow ? -1 : 0,
+      boxH: narrow ? 'auto' : '320vh', boxStagePos: narrow ? 'relative' : 'sticky', boxStageH: narrow ? 'auto' : '100svh',
+      boxStageDisplay: narrow ? 'block' : 'grid',
+      boxStagePad: narrow ? '72px 20px 64px' : 'clamp(80px,9vh,110px) clamp(20px,4vw,56px) clamp(40px,5vh,64px)',
+      deckCt: narrow ? 'normal' : 'size', deckDisplay: narrow ? 'grid' : 'block', deckMt: narrow ? '36px' : '0',
+      boxOpacity: Math.max(0, 1 - u * 1.4), boxTr: `-50% ${(u * 30).toFixed(2)}cqh`,
+      narrow, wide, deck, cardW: narrow ? '160px' : mid ? '190px' : 'clamp(180px,13vw,220px)', deckJustify: mid ? 'flex-start' : 'center',
+      showNav: w >= 980, showTel: w >= 1180,
+      nav: [['Courses', 'Courses.dc.html', '▾'], ['Mentors', 'Mentors.dc.html'], ['Results', 'Results.dc.html'], ['Resources', 'Resources.dc.html'], ['Contact', 'Contact.dc.html']]
+        .map((n, i) => ({ label: n[0], href: n[1], car: n[2] || '', dash: i === 0 ? 0 : 1 })),
+      chips: ['Beginner to advanced', 'Six courses', 'Online or in class'],
+      heroCols: mid ? 'minmax(0,1fr)' : 'minmax(0,1.1fr) minmax(0,0.9fr)',
+      headCols: narrow ? '1fr' : 'auto 1fr', noteAlign: narrow ? 'start' : 'end',
+      rowCols: narrow ? '28px minmax(0,1fr)' : mid ? '40px minmax(0,1fr) minmax(0,1fr) 110px 90px' : '56px minmax(0,1fr) minmax(0,1.1fr) 140px 96px',
+      courses,
+      pickAll: () => this.setState({ fCourse: 'All six courses' }),
+      onListMove: e => {
+        const el = this.listRef.current; if (!el) return;
+        const b = el.getBoundingClientRect();
+        this.setState({ mx: e.clientX - b.left, my: e.clientY - b.top });
+      },
+      onListLeave: () => this.setState({ hov: -1 }),
+      listRef: this.listRef,
+      pvX: (s.mx + 28) + 'px', pvY: (s.my - 160) + 'px',
+      pvOpacity: s.hov >= 0 ? 1 : 0, pvScale: s.hov >= 0 ? 1 : 0.85, pvImg: hovC[4],
+      steps, stepImg: stepsRaw[s.step][3], stepNum: String(s.step + 1), stepWhen: stepsRaw[s.step][2],
+      twmCols: narrow ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.05fr)',
+      bandClip: narrow ? 'none' : 'polygon(0 9%,100% 0,100% 91%,0 100%)',
+      ctaCols: narrow ? 'minmax(0,1fr)' : 'minmax(0,1.15fr) minmax(0,0.85fr)',
+      ctaClip: narrow ? 'polygon(0 0,100% 0,100% 100%,0 100%)' : 'polygon(0 0,78% 0,58% 100%,0 100%)',
+      formRow: narrow ? '1fr' : '1fr 1fr',
+      notSent: !s.sent, sent: s.sent,
+      fName: s.fName, fContact: s.fContact, fCourse: s.fCourse, fLevel: s.fLevel,
+      courseOpts: [...raw.map(r => r[0]), 'All six courses', 'Not sure yet'],
+      levelOpts: ['Complete beginner', 'Some experience', 'Active investor / trader'],
+      onName: e => this.setState({ fName: e.target.value }),
+      onContact: e => this.setState({ fContact: e.target.value }),
+      onCourse: e => this.setState({ fCourse: e.target.value }),
+      onLevel: e => this.setState({ fLevel: e.target.value }),
+      focusName: () => this.setState({ focus: 'name' }), focusContact: () => this.setState({ focus: 'contact' }),
+      blurField: () => this.setState({ focus: '' }),
+      nameBorder: s.focus === 'name' ? ink : '#ded8ee', contactBorder: s.focus === 'contact' ? ink : '#ded8ee',
+      nameLblY: ln.y, nameLblS: ln.sc, nameLblColor: ln.c,
+      contactLblY: lc.y, contactLblS: lc.sc, contactLblColor: lc.c,
+      courseLblY: lco.y, courseLblS: lco.sc, courseLblColor: lco.c,
+      levelLblY: ll.y, levelLblS: ll.sc, levelLblColor: ll.c,
+      courseTotal,
+      onSubmit: e => { e.preventDefault(); this.setState({ sent: true }); },
+      ftCols: narrow ? '1fr' : 'minmax(0,1fr) minmax(0,1.4fr) minmax(0,1fr)',
+      ftNavCols: narrow ? '1fr 1fr' : 'repeat(3,minmax(0,1fr))',
+      ftPadR: narrow ? '20px' : 'calc(clamp(20px,4vw,56px) + 60px)',
+      ftNav: [
+        { title: 'Courses', links: raw.map((r, i) => ({ label: r[0], href: ["Stock Market Mastery.dc.html","Mutual Funds Magic.dc.html","Futures and Options Mastery.dc.html","Value Investing Secrets.dc.html","Technical Analysis Power.dc.html","Fundamental Analysis Edge.dc.html"][i] })) },
+        { title: 'The Investor Brain', links: [['Mentors', 'Mentors.dc.html'], ['Results', 'Results.dc.html'], ['Resources', 'Resources.dc.html']].map(l => ({ label: l[0], href: l[1] })) },
+        { title: 'Help', links: [['Book a class', '#enroll'], ['FAQ', 'Home.dc.html'], ['Contact', 'Contact.dc.html'], ['Privacy & terms', 'Legal.dc.html']].map(l => ({ label: l[0], href: l[1] })) },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

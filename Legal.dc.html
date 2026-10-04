@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ivar,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..700,100&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;family=Kalam:wght@400;700&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#f5f2fb;overflow-x:clip}
+*{box-sizing:border-box}
+a{color:inherit}
+a:hover{color:inherit}
+</style>
+</helmet>
+<div style="position:relative;font-family:'Plus Jakarta Sans', Inter, system-ui, sans-serif;font-weight:400;color:#1d1830;background:#f5f2fb">
+
+  <header style="position:absolute;left:0;right:0;top:0;z-index:1000;color:#1d1830">
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;height:34px;padding:0 20px;background:#1d1830;color:#f5f2fb;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;overflow:hidden">
+      <i style="width:7px;height:7px;border-radius:50%;background:rgb(31,164,99);flex:0 0 auto"></i>
+      <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">New batches open — six courses, beginner to advanced</span>
+      <a href="Courses.dc.html#enroll" style="flex:0 0 auto;color:#ffd93d;text-decoration:none">Enroll now →</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:28px;height:74px;padding:0 clamp(20px,4vw,56px)">
+      <a href="Home.dc.html" aria-label="The Investor Brain — home" style="position:relative;flex:0 0 auto;font-family:Fraunces, Georgia, serif;font-size:26px;font-weight:600;letter-spacing:-0.03em;line-height:1;color:inherit;text-decoration:none">The Investor Brain<svg viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:0;bottom:-9px;width:100%;height:12px;overflow:visible"><path d="M3 9C30 4 70 3 117 7" style="fill:none;stroke:#C8283E;stroke-width:2.4;stroke-linecap:round" vector-effect="non-scaling-stroke"></path></svg></a>
+      <sc-if value="{{ showNav }}" hint-placeholder-val="{{ true }}">
+        <nav aria-label="Primary" style="margin:0 auto 0 12px">
+          <ul style="display:flex;gap:2px;list-style:none;margin:0;padding:0">
+            <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+              <li><a href="{{ n.href }}" style="position:relative;display:flex;align-items:center;gap:6px;padding:10px 13px;border-radius:999px;color:inherit;text-decoration:none;font-size:14.5px;font-weight:500">{{ n.label }}<span style="font-size:10px;opacity:0.6">{{ n.car }}</span><svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:13px;bottom:4px;width:calc(100% - 26px);height:7px;overflow:visible"><path d="M2 6C30 3 70 3 98 5" pathLength="1" style="fill:none;stroke:#C8283E;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:{{ n.dash }}" vector-effect="non-scaling-stroke"></path></svg></a></li>
+            </sc-for>
+          </ul>
+        </nav>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:14px;margin-left:auto">
+        <sc-if value="{{ showTel }}" hint-placeholder-val="{{ true }}">
+          <a href="tel:+910000000000" style="font-family:'DM Mono', ui-monospace, monospace;font-size:12.5px;letter-spacing:0.03em;color:inherit;text-decoration:none;opacity:0.8">+91 XXXXX XXXXX</a>
+        </sc-if>
+        <a href="Courses.dc.html#enroll" style="display:inline-flex;align-items:center;justify-content:center;padding:0 26px;min-height:46px;border-radius:999px;background:#1d1830;color:#f5f2fb;text-decoration:none;white-space:nowrap;font-size:14px;font-weight:600;letter-spacing:-0.005em;transition:background .35s,color .35s" style-hover="background:#ffd93d;color:#1d1830">Book a free class</a>
+      </div>
+    </div>
+  </header>
+
+  <section data-screen-label="Hero" style="position:relative;overflow:hidden;color:#1d1830;background-image:repeating-linear-gradient(180deg,transparent 0 43px,color-mix(in srgb,#2a1f5c 11%,transparent) 43px 44px)">
+    <i aria-hidden="true" style="position:absolute;top:0;bottom:0;left:clamp(40px,5vw,80px);width:1.5px;background:color-mix(in srgb,#C8283E 50%,transparent)"></i>
+    <div style="max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:clamp(150px,17vh,190px) clamp(20px,4vw,56px) clamp(60px,7vw,100px) calc(clamp(40px,5vw,80px) + clamp(24px,3vw,48px))">
+      <nav aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb,#6d6784 80%,#1d1830)">
+        <span><a href="Home.dc.html" style="color:inherit;text-decoration:none">Home</a><i aria-hidden="true" style="font-style:normal;margin-left:8px;opacity:0.5">/</i></span>
+        <span><b aria-current="page" style="font-weight:500;color:#1d1830">Privacy &amp; terms</b></span>
+      </nav>
+      <p style="display:inline-flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin:0;padding:7px 12px 7px 10px;border-radius:4px;border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-left:3px solid #ffd93d;font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase"><i aria-hidden="true" style="width:5px;height:5px;border-radius:1px;background:#ffd93d;display:block;flex:0 0 auto"></i>The small print</p>
+      <h1 style="margin:14px 0 0;font-family:Fraunces, Georgia, serif;font-weight:560;font-variation-settings:'SOFT' 100;font-size:clamp(46px,5vw,84px);line-height:0.98;letter-spacing:-0.04em">Privacy &amp; terms.</h1>
+    </div>
+  </section>
+
+  <section data-screen-label="Legal" style="position:relative;background:#f5f2fb;color:#1d1830">
+    <div style="display:grid;grid-template-columns:{{ lgCols }};gap:clamp(30px,6vw,110px);align-items:start;max-width:1180px;margin:0 auto;padding:clamp(30px,4vw,60px) clamp(20px,4vw,56px) clamp(90px,10vw,140px)">
+      <nav aria-label="Contents" style="position:{{ lgTocPos }};top:110px">
+        <p style="margin:0 0 12px;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb,#6d6784 80%,#1d1830)">Contents</p>
+        <ol style="margin:0;padding-left:18px;display:grid;gap:8px;font-size:14.5px">
+          <li><a href="#legal-privacy" style="color:#1d1830;text-decoration:none" style-hover="text-decoration:underline">Privacy</a></li>
+          <li><a href="#legal-how-we-use-it" style="color:#1d1830;text-decoration:none" style-hover="text-decoration:underline">How we use it</a></li>
+          <li><a href="#legal-payments" style="color:#1d1830;text-decoration:none" style-hover="text-decoration:underline">Payments &amp; GST</a></li>
+          <li><a href="#legal-refunds" style="color:#1d1830;text-decoration:none" style-hover="text-decoration:underline">Refunds</a></li>
+          <li><a href="#legal-not-advice" style="color:#1d1830;text-decoration:none" style-hover="text-decoration:underline">Not investment advice</a></li>
+          <li><a href="#legal-your-choices" style="color:#1d1830;text-decoration:none" style-hover="text-decoration:underline">Your choices</a></li>
+          <li><a href="#legal-terms" style="color:#1d1830;text-decoration:none" style-hover="text-decoration:underline">Terms</a></li>
+          <li><a href="#legal-law" style="color:#1d1830;text-decoration:none" style-hover="text-decoration:underline">Governing law</a></li>
+        </ol>
+      </nav>
+      <div style="padding:clamp(26px,3.4vw,54px);border-radius:6px;background:#fff;box-shadow:0 40px 70px -50px color-mix(in srgb,#140f2a 60%,transparent);max-width:760px">
+        <p style="margin:0 0 20px;font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb,#6d6784 80%,#1d1830)">Last updated October 2026</p>
+        <div id="legal-privacy" style="scroll-margin-top:110px">
+          <h2 style="display:flex;align-items:baseline;gap:14px;margin:0 0 12px;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(22px,1.9vw,28px);letter-spacing:-0.02em"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:#C8283E">01</span>Privacy</h2>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">We collect only what we need to run your course: your name, phone number, email, the course you choose, your experience level and any notes you share with us. We never sell your data.</p>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">We process personal data in line with the Digital Personal Data Protection Act, 2023 and the Information Technology Act, 2000.</p>
+        </div>
+        <div id="legal-how-we-use-it" style="scroll-margin-top:110px">
+          <h2 style="display:flex;align-items:baseline;gap:14px;margin:34px 0 12px;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(22px,1.9vw,28px);letter-spacing:-0.02em"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:#C8283E">02</span>How we use it</h2>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">To book your free class, match you with a mentor, schedule classes, send class notes and answer your questions. Mentors see only what they need to teach you.</p>
+        </div>
+        <div id="legal-payments" style="scroll-margin-top:110px">
+          <h2 style="display:flex;align-items:baseline;gap:14px;margin:34px 0 12px;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(22px,1.9vw,28px);letter-spacing:-0.02em"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:#C8283E">03</span>Payments &amp; GST</h2>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">All course fees are in Indian rupees (₹). GST is charged as applicable and shown on your invoice.</p>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">Payments are handled by our payment gateway. We never store your card, UPI or bank details.</p>
+        </div>
+        <div id="legal-refunds" style="scroll-margin-top:110px">
+          <h2 style="display:flex;align-items:baseline;gap:14px;margin:34px 0 12px;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(22px,1.9vw,28px);letter-spacing:-0.02em"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:#C8283E">04</span>Refunds</h2>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">The first class is free and carries no obligation. If a paid course is not right for you, write to us within 7 days of your first paid class and we will refund the unused part of your fee.</p>
+        </div>
+        <div id="legal-not-advice" style="scroll-margin-top:110px">
+          <h2 style="display:flex;align-items:baseline;gap:14px;margin:34px 0 12px;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(22px,1.9vw,28px);letter-spacing:-0.02em"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:#C8283E">05</span>Not investment advice</h2>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">Our courses are for education only. Nothing in a class, worksheet or message is a recommendation to buy or sell any security, and we do not give stock tips or promise returns.</p>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">Investments in the securities market are subject to market risks. Read all related documents carefully before investing, and every investment decision you make is your own.</p>
+        </div>
+        <div id="legal-your-choices" style="scroll-margin-top:110px">
+          <h2 style="display:flex;align-items:baseline;gap:14px;margin:34px 0 12px;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(22px,1.9vw,28px);letter-spacing:-0.02em"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:#C8283E">06</span>Your choices</h2>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">Ask us any time to see, correct or delete your details, or to withdraw your consent — email the front desk. Questions or complaints about your data can be sent to our grievance officer at the same address.</p>
+        </div>
+        <div id="legal-terms" style="scroll-margin-top:110px">
+          <h2 style="display:flex;align-items:baseline;gap:14px;margin:34px 0 12px;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(22px,1.9vw,28px);letter-spacing:-0.02em"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:#C8283E">07</span>Terms</h2>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">Classes can be moved up to 24 hours before without charge. Course material and recordings are for your personal use only and may not be shared or resold.</p>
+        </div>
+        <div id="legal-law" style="scroll-margin-top:110px">
+          <h2 style="display:flex;align-items:baseline;gap:14px;margin:34px 0 12px;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(22px,1.9vw,28px);letter-spacing:-0.02em"><span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:#C8283E">08</span>Governing law</h2>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.7;color:color-mix(in srgb,#1d1830 85%,transparent)">These terms are governed by the laws of India. Any dispute is subject to the courts of [your city].</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position:relative;overflow:hidden;background:#2a1f5c;color:#fff;background-image:radial-gradient(120% 80% at 80% 0%,color-mix(in srgb,#fff 7%,transparent),transparent 60%)">
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <span aria-hidden="true" style="position:absolute;right:clamp(28px,5vw,80px);top:0;bottom:0;width:16px;background:#140f2a;box-shadow:inset 3px 0 0 color-mix(in srgb,#fff 8%,transparent)"></span>
+    </sc-if>
+    <div style="position:relative;max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:clamp(80px,9vw,120px) {{ ftPadR }} 30px clamp(20px,4vw,56px)">
+      <div style="display:grid;grid-template-columns:{{ ftCols }};gap:clamp(30px,4vw,64px)">
+        <div>
+          <p style="margin:0;max-width:300px;font-size:18px;line-height:1.5;color:color-mix(in srgb,#fff 88%,transparent)">One-to-one stock market courses — from your first share to futures &amp; options.</p>
+          <div style="display:grid;gap:8px;margin-top:26px;font-family:'DM Mono', ui-monospace, monospace;font-size:12.5px;letter-spacing:0.03em;color:color-mix(in srgb,#fff 70%,transparent)">
+            <a href="tel:+910000000000" style="color:#fff;text-decoration:none" style-hover="color:#ffd93d">+91 XXXXX XXXXX</a>
+            <a href="mailto:hello@theinvestorbrain.in" style="color:#fff;text-decoration:none" style-hover="color:#ffd93d">hello@theinvestorbrain.in</a>
+            <span>Your address, City, State – PIN</span>
+            <span>Mon–Sat · 08:00–20:00</span>
+          </div>
+        </div>
+        <nav aria-label="Footer" style="display:grid;grid-template-columns:{{ ftNavCols }};gap:20px">
+          <sc-for list="{{ ftNav }}" as="col" hint-placeholder-count="3">
+            <div>
+              <p style="margin:0 0 16px;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb,#fff 55%,transparent)">{{ col.title }}</p>
+              <ul style="list-style:none;margin:0;padding:0;display:grid;gap:10px">
+                <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5">
+                  <li><a href="{{ l.href }}" style="color:#fff;text-decoration:none;font-size:15px">{{ l.label }}</a></li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-for>
+        </nav>
+        <div>
+          <p style="margin:0 0 14px;font-family:Kalam, cursive;font-weight:700;font-size:24px;color:#ffd93d">A free market note, every Sunday</p>
+          <label style="position:relative;display:block;margin-bottom:12px">
+            <input type="email" autocomplete="email" placeholder=" " style="display:block;width:100%;height:56px;padding:22px 16px 6px;border:1.5px solid color-mix(in srgb,#fff 25%,transparent);border-radius:12px;background:color-mix(in srgb,#fff 6%,transparent);color:#fff;font:inherit;font-size:16px;outline:none">
+            <span style="position:absolute;left:17px;top:18px;font-size:15px;color:color-mix(in srgb,#fff 65%,transparent);pointer-events:none">Your email</span>
+          </label>
+          <button type="button" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;width:100%;padding:0 7px 0 26px;min-height:56px;border:0;border-radius:999px;background:#ffd93d;color:#1d1830;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;transition:background .35s,color .35s" style-hover="background:#fff">Send it<span style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#ffd93d;rotate:-35deg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></button>
+        </div>
+      </div>
+      <p aria-label="The Investor Brain" style="position:relative;margin:clamp(50px,6vw,90px) 0 0;font-family:Fraunces, Georgia, serif;font-size:clamp(44px,9.5vw,190px);line-height:0.86;font-weight:600;letter-spacing:-0.05em;color:#ffd93d">The Investor Brain</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:30px;padding-top:20px;border-top:1px solid color-mix(in srgb,#fff 15%,transparent);font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.04em;color:color-mix(in srgb,#fff 60%,transparent)">
+        <span>© 2026 The Investor Brain. All rights reserved.</span>
+        <span style="display:flex;gap:18px"><a href="https://instagram.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">Instagram</a><a href="https://youtube.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">YouTube</a></span>
+        <span>Investing involves market risk.</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: 1280, hov: -1, step: 0, mx: 0, my: 0, fName: '', fContact: '', fCourse: '', fLevel: '', focus: '', sent: false, hovCard: -1, flip: -1, pp: 0, pp2: 0, hovS: -1, rv: 0, vOn: false, hovN: -1, faqOpen: [0] };
+  listRef = React.createRef();
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => {
+        this.raf = 0;
+        const prog = ref => {
+          const el = ref.current; if (!el) return 0;
+          const b = el.getBoundingClientRect(), span = b.height - window.innerHeight;
+          return span > 0 ? Math.min(1, Math.max(0, -b.top / span)) : 0;
+        };
+        const pp = prog(this.boxRef), pp2 = prog(this.twmRef), pp3 = prog(this.twpRef);
+        if (Math.abs(pp3 - (this.state.pp3 || 0)) > 0.001) this.setState({ pp3 });
+        const vh = window.innerHeight;
+        const tb = this.twbRef.current ? this.twbRef.current.getBoundingClientRect() : null;
+        const rv = tb ? Math.min(1, Math.max(0, (vh - tb.top) / vh)) : 1;
+        const tv = this.twvRef.current ? this.twvRef.current.getBoundingClientRect() : null;
+        const vOn = this.state.vOn || (tv ? tv.top < vh * 0.8 : false);
+        const st = this.state;
+        if (Math.abs(pp - st.pp) > 0.001 || Math.abs(pp2 - st.pp2) > 0.001 || Math.abs(rv - st.rv) > 0.001 || vOn !== st.vOn) this.setState({ pp, pp2, rv, vOn });
+      });
+    };
+    document.addEventListener('scroll', this.onScroll, true);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('scroll', this.onScroll, true);
+  }
+  boxRef = React.createRef();
+  twmRef = React.createRef();
+  contactVals(narrow) {
+    const s = this.state, mut = 'color-mix(in srgb,#6d6784 80%,#1d1830)';
+    const o = { cCols: narrow ? '1fr' : 'minmax(0,0.9fr) minmax(0,1.1fr)', cNotSent: !s.cSent, cSent: !!s.cSent,
+      cBlur: () => this.setState({ cFocus: '' }), cSubmit: e => { e.preventDefault(); this.setState({ cSent: true }); } };
+    ['cn', 'ce', 'cm'].forEach(k => {
+      const v = s[k] || '', up = !!v || s.cFocus === k;
+      Object.assign(o, { [k + 'Val']: v, [k + 'On']: e => this.setState({ [k]: e.target.value }), [k + 'Focus']: () => this.setState({ cFocus: k }),
+        [k + 'Border']: s.cFocus === k ? '#1d1830' : '#ded8ee', [k + 'LblY']: up ? '0 -11px' : '0 0', [k + 'LblS']: up ? '0.74' : '1', [k + 'LblC']: up ? '#2a1f5c' : mut });
+    });
+    return o;
+  }
+  twpRef = React.createRef();
+  wsVals(narrow) {
+    const s = this.state;
+    const u = Math.min(1, Math.max(0, ((s.pp3 || 0) - 0.05) / 0.8)), n = 4;
+    const grid = [[14, 52, -6], [38, 47, 3], [62, 53, -3], [86, 48, 5]];
+    const o = {};
+    grid.forEach(([gx, gy, gr], i) => {
+      const k = narrow ? 1 : Math.min(1, Math.max(0, u * n * 1.1 - i)), e = 1 - Math.pow(1 - k, 3);
+      const hv = s.hovW === i, marked = k >= 1;
+      o['ws' + i] = {
+        tr: narrow ? 'none' : `calc(50cqw + ${((gx - 50) * e).toFixed(3)}cqw - 50%) calc(${(150 + (gy - 150) * e).toFixed(3)}cqh - 50%)`,
+        rot: narrow ? '0deg' : (((1 - e) * (i - 1.5) * 9 + gr * e).toFixed(3) + 'deg'),
+        sc: hv ? 1.05 : 1, z: hv ? 9 : 'auto',
+        dash: marked ? 0 : 1, mk: marked ? 1 : 0, scoreSc: marked ? 1 : 1.6,
+        fillBg: marked ? '#1d1830' : 'transparent', fillC: marked ? '#fff' : '#1d1830',
+        dlBg: hv ? '#ffd93d' : '#1d1830', dlC: hv ? '#1d1830' : '#fff', dlOp: Math.max(0, k * 2 - 1),
+        onEnter: () => this.setState({ hovW: i }), onLeave: () => this.setState({ hovW: -1 }),
+      };
+    });
+    return {
+      ...o, twpRef: this.twpRef,
+      twpH: narrow ? 'auto' : '300vh', twpStagePos: narrow ? 'relative' : 'sticky', twpStageH: narrow ? 'auto' : '100svh',
+      twpPad: narrow ? '80px 20px 90px' : 'clamp(70px,10vh,110px) clamp(20px,4vw,56px) 0',
+      twpCopyCols: narrow ? '1fr' : 'minmax(0,1.1fr) minmax(0,0.9fr)',
+      deskCt: narrow ? 'normal' : 'size', deskDisplay: narrow ? 'grid' : 'block', deskMt: narrow ? '34px' : '0',
+      wsPos: narrow ? 'relative' : 'absolute', wsW: narrow ? 'auto' : 'min(22.5cqw,66cqh)', wsMb: narrow ? '34px' : '0',
+      wsFs: narrow ? '8.5px' : 'clamp(9px,.86cqw,13px)',
+    };
+  }
+  twbRef = React.createRef();
+  twvRef = React.createRef();
+
+  extraVals(narrow) {
+    const s = this.state;
+    const k = 1 - s.rv, ke = k * k;
+    const fly = [
+      ['assets/images/fly1.webp', { l: '6%', t: '9%' }, -60, -50, -6, -20],
+      ['assets/images/fly2.webp', { r: '6%', t: '7%' }, 60, -50, 5, 20],
+      ['assets/images/fly3.avif', { l: '9%', b: '7%' }, -60, 50, 4, 18],
+      ['assets/images/fly4.webp', { r: '8%', b: '9%' }, 60, 50, -5, -18],
+    ].map(([img, p, tx, ty, r0, rk]) => ({
+      img, l: p.l || 'auto', r: p.r || 'auto', t: p.t || 'auto', b: p.b || 'auto',
+      tr: `${(ke * tx).toFixed(2)}vw ${(ke * ty).toFixed(2)}vh`, rot: (r0 + k * rk).toFixed(2) + 'deg',
+    }));
+    const noteData = [
+      ["#ffd93d", -4, "I had never bought a share. By week three I had my demat account open and knew exactly what I was buying and why.", "Student, Stock Market Mastery", "First share"],
+      ["#FFB8C8", 3, "Started my first SIP in week two, set to a real goal instead of a random amount.", "Student, Mutual Funds Magic", "First SIP"],
+      ["#BDE8D2", -2, "Options looked like gambling to me. Now I know exactly what I am risking on every trade.", "Student, Futures & Options Mastery", "Risk defined"],
+      ["#C9D6FF", 5, "I used to buy what was going up. Now I buy what is worth more than its price.", "Student, Value Investing Secrets", "Value first"],
+      ["#FFD6A5", -3, "The chart lessons finally made support and resistance click. I trade with a plan and a stop-loss now.", "Student, Technical Analysis Power", "Plan first"],
+      ["#fff", 2, "I used to buy on tips from friends. Now I read the balance sheet before I buy a single share.", "Student, Fundamental Analysis Edge", "Tips → research"],
+      ["#ffd93d", -4, "Market orders, limit orders, stop-loss — it finally makes sense. No more panic clicking.", "Student, Stock Market Mastery", "Orders sorted"],
+      ["#FFB8C8", 3, "I finally understand direct vs regular plans. Switched and saved on fees straight away.", "Student, Mutual Funds Magic", "Fees cut"],
+      ["#BDE8D2", -2, "Learned to hedge my long-term portfolio instead of selling in a panic.", "Student, Futures & Options Mastery", "Hedged"],
+      ["#C9D6FF", 5, "The red-flag checklist for annual reports saved me from one bad stock already.", "Student, Value Investing Secrets", "Red flags"],
+      ["#FFD6A5", -3, "I dropped half my indicators and my charts got clearer.", "Student, Technical Analysis Power", "Clean charts"],
+      ["#fff", 2, "Cash flow was the missing piece. I see through flashy profits now.", "Student, Fundamental Analysis Edge", "Cash flow"],
+      ["#ffd93d", -4, "Took all six courses over a year. I finally have a process, not a hunch.", "Student, All six courses", "★★★★★"],
+      ["#FFB8C8", 3, "One-to-one meant I could ask the “silly” questions. There were a lot of them.", "Student, Stock Market Mastery", "No silly Qs"],
+      ["#BDE8D2", -2, "My SIPs, my stocks and my F&O trades now all follow one written plan.", "Student, Mutual Funds Magic + F&O", "One plan"],
+    ];
+    const notes = noteData.map((n, i) => {
+      const hv = s.hovN === i, on = s.vOn || narrow;
+      return {
+        bg: n[0], q: n[2], who: n[3], tag: n[4],
+        rot: hv ? '0deg' : n[1] + 'deg', op: on ? 1 : 0,
+        tr: !on ? '0 -40px' : hv ? '0 -6px' : '0 0', sc: on ? 1 : 1.12, d: hv ? '0ms' : (200 + i * 80) + 'ms',
+        margin: narrow ? '0 0 clamp(28px,3vw,44px)' : (i === 1 ? '40px 0 clamp(28px,3vw,44px)' : i === 4 ? '0 0 clamp(28px,3vw,44px) 18px' : '0 0 clamp(28px,3vw,44px)'),
+        pad: i === 3 ? '30px 26px 34px' : '30px 26px 22px',
+        shadow: hv ? '0 36px 40px -26px color-mix(in srgb,#140f2a 60%,transparent)' : '0 22px 30px -22px color-mix(in srgb,#140f2a 55%,transparent),0 1px 1px color-mix(in srgb,#140f2a 12%,transparent)',
+        onEnter: () => this.setState({ hovN: i }), onLeave: () => this.setState({ hovN: -1 }),
+      };
+    });
+    const faqData = [
+      ['How does the free first class work?', 2, "It's a real class with a mentor matched to your course and level, plus a short check of what you already know. No card needed, and no obligation to continue."],
+      ['Which course should I start with?', 3, 'If you are new to the market, start with Stock Market Mastery or Mutual Funds Magic. If you already invest, the free call helps you pick between the analysis courses and Futures & Options.'],
+      ['Online or in class?', 2, 'Both. Online classes use a shared screen with live charts. Most students mix the two.'],
+      ['Do I need a demat account first?', 2, 'No. We walk you through opening one during the beginner course, and you can practise on paper before using real money.'],
+      ['Will you give me stock tips?', 3, 'No. The courses teach you how to analyse and decide for yourself. Investing carries market risk, and every decision stays yours.'],
+      ['Can I pay for courses one at a time?', 1, 'Yes. Each course is priced on its own, or you can take all six for ₹48,600.'],
+    ];
+    const open = s.faqOpen;
+    const faqs = faqData.map((f, i) => {
+      const o = open.includes(i);
+      return {
+        n: i + 1, q: f[0], m: f[1], a: f[2], exp: o ? 'true' : 'false', rows: o ? '1fr' : '0fr', dash: o ? 0 : 1,
+        onToggle: () => this.setState(st => ({ faqOpen: st.faqOpen.includes(i) ? st.faqOpen.filter(x => x !== i) : [...st.faqOpen, i] })),
+      };
+    });
+    return {
+      twbRef: this.twbRef, twvRef: this.twvRef, flyPhotos: fly, showFly: s.w >= 1200,
+      twbLoop: s.rv > 0.6 || narrow ? 0 : 1,
+      twbPad: narrow ? '96px 20px' : 'clamp(80px,10vh,120px) clamp(20px,4vw,56px)',
+      twbStatsDir: narrow ? 'column' : 'row',
+      notes,
+      faqs, faqScore: faqData.reduce((a, f, i) => a + (open.includes(i) ? f[1] : 0), 0), faqTotal: faqData.reduce((a, f) => a + f[1], 0),
+      faqCols: narrow ? '1fr' : 'minmax(0,.75fr) minmax(0,1.25fr)',
+      faqPad: narrow ? '80px 20px' : 'clamp(90px,11vw,150px) clamp(20px,4vw,56px)',
+      faqSidePos: narrow ? 'relative' : 'sticky',
+      faqBtnCols: narrow ? '34px minmax(0,1fr) 30px' : '44px minmax(0,1fr) 44px',
+      faqAPad: narrow ? '0px' : '54px',
+      paperLine: narrow ? 'none' : 'linear-gradient(90deg,transparent calc(100% - 64px),color-mix(in srgb,#C8283E 45%,transparent) calc(100% - 64px) calc(100% - 63px),transparent calc(100% - 63px))',
+    };
+  }
+
+  renderVals() {
+    const s = this.state, w = s.w;
+    const narrow = w < 810, wide = !narrow, mid = w < 1100;
+    const ink = '#1d1830', mut = 'color-mix(in srgb,#6d6784 80%,#1d1830)';
+    const raw = [
+      ['Stock Market Mastery', 'From Beginner to Confident Investor (New Edition)', 5500, 'Beginner', 'assets/images/pv1.webp'],
+      ['Mutual Funds Magic', 'Build Wealth the Smart & Simple Way', 4800, 'Beginner', 'assets/images/pv2.jpg'],
+      ['Futures & Options Mastery', 'Advanced Strategies for Consistent Profits', 15000, 'Advanced', 'assets/images/pv3.webp'],
+      ['Value Investing Secrets', 'Spot Undervalued Stocks Like a Pro', 4300, 'Intermediate', 'assets/images/pv4.jpg'],
+      ['Technical Analysis Power', 'Read Charts & Trade with Precision', 9000, 'Intermediate', 'assets/images/pv5.webp'],
+      ['Fundamental Analysis Edge', 'Decode Companies & Invest with Confidence', 10000, 'Intermediate', 'assets/images/pv6.webp'],
+    ];
+    const inr = n => '₹' + n.toLocaleString('en-IN');
+    const courses = raw.map((r, i) => ({
+      n: String(i + 1).padStart(2, '0'), name: r[0], sub: r[1], price: inr(r[2]), level: r[3],
+      dash: s.hov === i ? 0 : 1, pad: s.hov === i ? '14px' : '0px', goBg: s.hov === i ? '#ffd93d' : '#fff',
+      onEnter: () => this.setState({ hov: i }),
+      onPick: () => this.setState({ fCourse: r[0] }),
+    }));
+    const stepsRaw = [
+      ['Free counselling call', 'A 30-minute call to find the right course for your level — no cost, no commitment.', 'Day 1', 'assets/images/step1.webp'],
+      ['Matched with a mentor', 'We pair you with a mentor for your course and schedule. You meet them before you pay.', 'Day 2', 'assets/images/step2.webp'],
+      ['A plan on paper', 'Your course goals, week by week, written down and shared with you.', 'Week 1', 'assets/images/step3.webp'],
+      ['Progress you can see', 'A short recap after every class and a check-in every few weeks on what you can now do on your own.', 'Every week', 'assets/images/step4.webp'],
+    ];
+    const nS = stepsRaw.length;
+    const u2 = Math.min(1, Math.max(0, (s.pp2 - 0.05) / 0.82));
+    const curStep = !this.twmRef.current ? s.step : narrow ? 0 : Math.min(nS - 1, Math.max(0, Math.floor(u2 * nS + 0.05)));
+    const stepFigs = stepsRaw.map((r, i) => {
+      const k = narrow ? (i === 0 ? 1 : 0) : Math.min(1, Math.max(0, u2 * nS - i + 0.55));
+      return {
+        img: r[3], num: String(i + 1), when: r[2], z: i + 1,
+        clip: i === 0 || narrow ? 'none' : `polygon(${(118 - k * 136).toFixed(2)}% 0,118% 0,118% 100%,${(100 - k * 136).toFixed(2)}% 100%)`,
+        op: narrow && i > 0 ? 0 : 1, sc: (1.12 - k * 0.12).toFixed(4),
+      };
+    });
+    const steps = stepsRaw.map((r, i) => {
+      const cur = i === curStep, done = i < curStep;
+      return {
+        n: String(i + 1).padStart(2, '0'), title: r[0], desc: r[1], when: r[2],
+        noColor: cur ? '#fff' : 'color-mix(in srgb,#fff 55%,transparent)',
+        bColor: cur || done ? '#fff' : 'color-mix(in srgb,#fff 55%,transparent)',
+        tick: done ? 0 : 1, rows: cur || narrow ? '1fr' : '0fr', mt: cur || narrow ? '8px' : '0px',
+        wBg: cur ? '#ffd93d' : 'transparent', wColor: cur ? ink : 'color-mix(in srgb,#fff 60%,transparent)',
+        wBorder: cur ? '#ffd93d' : 'color-mix(in srgb,#fff 22%,transparent)',
+        onPick: () => this.setState({ step: i }),
+      };
+    });
+    const lbl = (key, filled) => {
+      const up = filled || s.focus === key;
+      return { y: up ? '0 -11px' : '0 0', sc: up ? '0.74' : '1', c: up ? '#2a1f5c' : mut };
+    };
+    const ln = lbl('name', s.fName), lc = lbl('contact', s.fContact), lco = lbl('course', s.fCourse), ll = lbl('level', s.fLevel);
+    const sel = raw.find(r => r[0] === s.fCourse);
+    const courseTotal = s.fCourse === 'All six courses' ? '₹48,600' : sel ? inr(sel[2]) : '';
+    const hovC = raw[Math.max(0, s.hov)];
+    const u = Math.min(1, Math.max(0, (s.pp - 0.04) / 0.8));
+    const grid = [[17, 25, -3], [50, 23, 2], [83, 26, -2], [17, 75, 2], [50, 77, -2], [83, 74, 3]];
+    const sCards = raw.map((r, i) => {
+      const ki = Math.min(1, Math.max(0, u * 7.2 - i * 1.05)), e = 1 - Math.pow(1 - ki, 3);
+      const [gx, gy, gr] = grid[i], hv = s.hovS === i;
+      const y = 104 - i * 2.4 + (gy - 104 + i * 2.4) * e;
+      return {
+        n: String(i + 1).padStart(2, '0'), name: r[0], level: r[3], price: inr(r[2]), img: r[4],
+        pos: narrow ? 'relative' : 'absolute', w: narrow ? 'auto' : 'min(29cqw,36cqh)',
+        tr: narrow ? 'none' : `calc(50cqw + ${((gx - 50) * e).toFixed(3)}cqw - 50%) calc(${y.toFixed(3)}cqh - 50%)`,
+        rot: narrow ? '0deg' : (((i - 2.5) * 5 * (1 - e) + gr * e).toFixed(3) + 'deg'),
+        sc: hv ? 1.04 : 1, z: hv ? 20 : 'auto', dash: hv ? 0 : 1, imgSc: hv ? 1.07 : 1,
+        shadow: hv ? '0 40px 70px -30px color-mix(in srgb,#140f2a 65%,transparent)' : '0 26px 50px -30px color-mix(in srgb,#140f2a 55%,transparent),0 1px 0 color-mix(in srgb,#1d1830 8%,transparent)',
+        onEnter: () => this.setState({ hovS: i }), onLeave: () => this.setState({ hovS: -1 }),
+        onPick: () => this.setState({ fCourse: r[0] }),
+      };
+    });
+    const deckImgs = ['assets/images/pv1.webp', 'assets/images/card2.jpg', 'assets/images/pv3.webp'];
+    const deck = [0, 4, 2].map((ci, i) => {
+      const r = raw[ci], hv = s.hovCard === i, fl = s.flip === i, up = hv || fl;
+      return {
+        name: r[0], sub: r[1], price: inr(r[2]), level: r[3], img: deckImgs[i], flipped: fl ? 'true' : 'false',
+        rot: up ? '0deg' : ((i - 1) * 6) + 'deg', ty: up ? '0 -30px' : (i === 1 ? '0 -18px' : '0 0'), z: up ? 3 : 1,
+        imgScale: hv ? '1.06' : '1', flipT: fl ? 'rotateY(180deg)' : 'none',
+        frontVis: fl ? 'hidden' : 'visible', backVis: fl ? 'visible' : 'hidden', btnZ: fl ? 0 : 2,
+        onEnter: () => this.setState({ hovCard: i }), onLeave: () => this.setState({ hovCard: -1 }),
+        onFlip: () => this.setState({ flip: s.flip === i ? -1 : i }),
+        onEnroll: () => this.setState({ fCourse: r[0] }),
+      };
+    });
+    return {
+      ...this.extraVals(narrow),
+      lgCols: narrow ? '1fr' : '240px minmax(0,1fr)', lgTocPos: narrow ? 'relative' : 'sticky',
+      ...this.contactVals(narrow),
+      ...this.wsVals(narrow),
+      sbCols: mid ? 'minmax(0,1fr)' : 'minmax(0,1.3fr) minmax(0,0.7fr)', sbCardPos: mid ? 'relative' : 'sticky', sbCardTop: mid ? '0px' : '100px',
+      mentorCols: narrow ? '1fr 1fr' : mid ? 'repeat(3,minmax(0,1fr))' : 'repeat(4,minmax(0,1fr))',
+      pickThis: () => this.setState({ fCourse: 'Stock Market Mastery' }),
+      sCards, boxRef: this.boxRef, twmRef: this.twmRef, stepFigs,
+      twmH: narrow ? 'auto' : `calc(${nS} * 90vh + 60vh)`, twmGridH: narrow ? 'auto' : '100%',
+      twmPad: narrow ? '80px 20px' : 'clamp(70px,11vh,120px) clamp(20px,4vw,56px)',
+      twmMediaH: narrow ? 'auto' : 'min(72vh,640px)', twmMediaAR: narrow ? '4 / 3' : 'auto', twmMediaOrder: narrow ? -1 : 0,
+      boxH: narrow ? 'auto' : '320vh', boxStagePos: narrow ? 'relative' : 'sticky', boxStageH: narrow ? 'auto' : '100svh',
+      boxStageDisplay: narrow ? 'block' : 'grid',
+      boxStagePad: narrow ? '72px 20px 64px' : 'clamp(80px,9vh,110px) clamp(20px,4vw,56px) clamp(40px,5vh,64px)',
+      deckCt: narrow ? 'normal' : 'size', deckDisplay: narrow ? 'grid' : 'block', deckMt: narrow ? '36px' : '0',
+      boxOpacity: Math.max(0, 1 - u * 1.4), boxTr: `-50% ${(u * 30).toFixed(2)}cqh`,
+      narrow, wide, deck, cardW: narrow ? '160px' : mid ? '190px' : 'clamp(180px,13vw,220px)', deckJustify: mid ? 'flex-start' : 'center',
+      showNav: w >= 980, showTel: w >= 1180,
+      nav: [['Courses', 'Courses.dc.html', '▾'], ['Mentors', 'Mentors.dc.html'], ['Results', 'Results.dc.html'], ['Resources', 'Resources.dc.html'], ['Contact', 'Contact.dc.html']]
+        .map((n, i) => ({ label: n[0], href: n[1], car: n[2] || '', dash: 1 })),
+      chips: ['Beginner to advanced', 'Six courses', 'Online or in class'],
+      heroCols: mid ? 'minmax(0,1fr)' : 'minmax(0,1.1fr) minmax(0,0.9fr)',
+      headCols: narrow ? '1fr' : 'auto 1fr', noteAlign: narrow ? 'start' : 'end',
+      rowCols: narrow ? '28px minmax(0,1fr)' : mid ? '40px minmax(0,1fr) minmax(0,1fr) 110px 90px' : '56px minmax(0,1fr) minmax(0,1.1fr) 140px 96px',
+      courses,
+      pickAll: () => this.setState({ fCourse: 'All six courses' }),
+      onListMove: e => {
+        const el = this.listRef.current; if (!el) return;
+        const b = el.getBoundingClientRect();
+        this.setState({ mx: e.clientX - b.left, my: e.clientY - b.top });
+      },
+      onListLeave: () => this.setState({ hov: -1 }),
+      listRef: this.listRef,
+      pvX: (s.mx + 28) + 'px', pvY: (s.my - 160) + 'px',
+      pvOpacity: s.hov >= 0 ? 1 : 0, pvScale: s.hov >= 0 ? 1 : 0.85, pvImg: hovC[4],
+      steps, stepImg: stepsRaw[s.step][3], stepNum: String(s.step + 1), stepWhen: stepsRaw[s.step][2],
+      twmCols: narrow ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.05fr)',
+      bandClip: narrow ? 'none' : 'polygon(0 9%,100% 0,100% 91%,0 100%)',
+      ctaCols: narrow ? 'minmax(0,1fr)' : 'minmax(0,1.15fr) minmax(0,0.85fr)',
+      ctaClip: narrow ? 'polygon(0 0,100% 0,100% 100%,0 100%)' : 'polygon(0 0,78% 0,58% 100%,0 100%)',
+      formRow: narrow ? '1fr' : '1fr 1fr',
+      notSent: !s.sent, sent: s.sent,
+      fName: s.fName, fContact: s.fContact, fCourse: s.fCourse, fLevel: s.fLevel,
+      courseOpts: [...raw.map(r => r[0]), 'All six courses', 'Not sure yet'],
+      levelOpts: ['Complete beginner', 'Some experience', 'Active investor / trader'],
+      onName: e => this.setState({ fName: e.target.value }),
+      onContact: e => this.setState({ fContact: e.target.value }),
+      onCourse: e => this.setState({ fCourse: e.target.value }),
+      onLevel: e => this.setState({ fLevel: e.target.value }),
+      focusName: () => this.setState({ focus: 'name' }), focusContact: () => this.setState({ focus: 'contact' }),
+      blurField: () => this.setState({ focus: '' }),
+      nameBorder: s.focus === 'name' ? ink : '#ded8ee', contactBorder: s.focus === 'contact' ? ink : '#ded8ee',
+      nameLblY: ln.y, nameLblS: ln.sc, nameLblColor: ln.c,
+      contactLblY: lc.y, contactLblS: lc.sc, contactLblColor: lc.c,
+      courseLblY: lco.y, courseLblS: lco.sc, courseLblColor: lco.c,
+      levelLblY: ll.y, levelLblS: ll.sc, levelLblColor: ll.c,
+      courseTotal,
+      onSubmit: e => { e.preventDefault(); this.setState({ sent: true }); },
+      ftCols: narrow ? '1fr' : 'minmax(0,1fr) minmax(0,1.4fr) minmax(0,1fr)',
+      ftNavCols: narrow ? '1fr 1fr' : 'repeat(3,minmax(0,1fr))',
+      ftPadR: narrow ? '20px' : 'calc(clamp(20px,4vw,56px) + 60px)',
+      ftNav: [
+        { title: 'Courses', links: raw.map((r, i) => ({ label: r[0], href: ["Stock Market Mastery.dc.html","Mutual Funds Magic.dc.html","Futures and Options Mastery.dc.html","Value Investing Secrets.dc.html","Technical Analysis Power.dc.html","Fundamental Analysis Edge.dc.html"][i] })) },
+        { title: 'The Investor Brain', links: [['Mentors', 'Mentors.dc.html'], ['Results', 'Results.dc.html'], ['Resources', 'Resources.dc.html']].map(l => ({ label: l[0], href: l[1] })) },
+        { title: 'Help', links: [['Book a class', 'Courses.dc.html#enroll'], ['FAQ', 'Home.dc.html'], ['Contact', 'Contact.dc.html'], ['Privacy & terms', 'Legal.dc.html']].map(l => ({ label: l[0], href: l[1] })) },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

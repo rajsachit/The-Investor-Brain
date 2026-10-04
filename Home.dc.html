@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ivar,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..700,100&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;family=Kalam:wght@400;700&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#f5f2fb;overflow-x:clip}
+*{box-sizing:border-box}
+a{color:inherit}
+a:hover{color:inherit}
+</style>
+</helmet>
+<div style="position:relative;font-family:'Plus Jakarta Sans', Inter, system-ui, sans-serif;font-weight:400;color:#1d1830;background:#f5f2fb">
+
+  <header style="position:absolute;left:0;right:0;top:0;z-index:1000;color:#1d1830">
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;height:34px;padding:0 20px;background:#1d1830;color:#f5f2fb;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;overflow:hidden">
+      <i style="width:7px;height:7px;border-radius:50%;background:rgb(31,164,99);flex:0 0 auto"></i>
+      <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">New batches open — six courses, beginner to advanced</span>
+      <a href="#enroll" style="flex:0 0 auto;color:#ffd93d;text-decoration:none">Enroll now →</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:28px;height:74px;padding:0 clamp(20px,4vw,56px)">
+      <a href="Home.dc.html" aria-label="The Investor Brain — home" style="position:relative;flex:0 0 auto;font-family:Fraunces, Georgia, serif;font-size:26px;font-weight:600;letter-spacing:-0.03em;line-height:1;color:inherit;text-decoration:none">The Investor Brain<svg viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:0;bottom:-9px;width:100%;height:12px;overflow:visible"><path d="M3 9C30 4 70 3 117 7" style="fill:none;stroke:#C8283E;stroke-width:2.4;stroke-linecap:round" vector-effect="non-scaling-stroke"></path></svg></a>
+      <sc-if value="{{ showNav }}" hint-placeholder-val="{{ true }}">
+        <nav aria-label="Primary" style="margin:0 auto 0 12px">
+          <ul style="display:flex;gap:2px;list-style:none;margin:0;padding:0">
+            <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+              <li><a href="{{ n.href }}" style="position:relative;display:flex;align-items:center;gap:6px;padding:10px 13px;border-radius:999px;color:inherit;text-decoration:none;font-size:14.5px;font-weight:500">{{ n.label }}<span style="font-size:10px;opacity:0.6">{{ n.car }}</span><svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:13px;bottom:4px;width:calc(100% - 26px);height:7px;overflow:visible"><path d="M2 6C30 3 70 3 98 5" pathLength="1" style="fill:none;stroke:#C8283E;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:{{ n.dash }}" vector-effect="non-scaling-stroke"></path></svg></a></li>
+            </sc-for>
+          </ul>
+        </nav>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:14px;margin-left:auto">
+        <sc-if value="{{ showTel }}" hint-placeholder-val="{{ true }}">
+          <a href="tel:+910000000000" style="font-family:'DM Mono', ui-monospace, monospace;font-size:12.5px;letter-spacing:0.03em;color:inherit;text-decoration:none;opacity:0.8">+91 XXXXX XXXXX</a>
+        </sc-if>
+        <a href="#enroll" style="display:inline-flex;align-items:center;justify-content:center;padding:0 26px;min-height:46px;border-radius:999px;background:#1d1830;color:#f5f2fb;text-decoration:none;white-space:nowrap;font-size:14px;font-weight:600;letter-spacing:-0.005em;transition:background .35s,color .35s" style-hover="background:#ffd93d;color:#1d1830">Book a free class</a>
+      </div>
+    </div>
+  </header>
+
+  <section data-screen-label="Hero" ref="{{ heroRef }}" style="position:relative;isolation:isolate;overflow:hidden;min-height:{{ hMinH }};background:#f5f2fb;color:#1d1830">
+    <sc-if value="{{ hShowMedia }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute;inset:0;z-index:-3;overflow:hidden"><img src="assets/images/home-hero.webp" alt="Two people working through a notebook together at a bright desk" style="width:100%;height:100%;object-fit:cover;display:block;object-position:68% 42%;scale:{{ hImgScale }};translate:{{ hImgTr }};transition:scale 2.4s cubic-bezier(.2,.7,.2,1)"></div>
+      <div aria-hidden="true" style="position:absolute;inset:0;z-index:-2;background:{{ hWash }}"></div>
+    </sc-if>
+    <div aria-hidden="true" style="position:absolute;z-index:-1;left:0;top:0;bottom:0;width:{{ hSheetW }};translate:{{ hSheetTr }};mask-image:{{ hSheetMask }};-webkit-mask-image:{{ hSheetMask }}">
+      <i style="position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 43px,color-mix(in srgb,#2a1f5c 16%,transparent) 43px 44px);clip-path:{{ hRuleClip }};transition:clip-path 1.6s cubic-bezier(.6,0,.2,1) .1s"></i>
+      <i style="position:absolute;top:0;bottom:0;left:{{ hMarginL }};width:1.5px;background:color-mix(in srgb,#C8283E 55%,transparent);transform-origin:50% 0;scale:{{ hMarginScale }};transition:scale 1.3s cubic-bezier(.6,0,.2,1) .35s"></i>
+      <sc-if value="{{ hShowMedia }}" hint-placeholder-val="{{ true }}">
+        <i style="position:absolute;left:clamp(18px,2vw,30px);top:0;bottom:0;width:14px;background:radial-gradient(circle at 7px 7px,color-mix(in srgb,#1d1830 10%,transparent) 6px,transparent 6.5px) 0 120px / 14px 210px repeat-y;opacity:{{ hIn }};transition:opacity 1s .6s"></i>
+      </sc-if>
+    </div>
+    <sc-if value="{{ hShowMarks }}" hint-placeholder-val="{{ true }}">
+      <span aria-hidden="true" style="position:absolute;z-index:2;pointer-events:none;translate:-50% -50%;left:62%;top:19%;color:#C8283E">
+        <b style="display:block;font-family:Kalam, cursive;font-weight:700;font-size:clamp(22px,2vw,30px);line-height:1;white-space:nowrap;color:#C8283E;rotate:-4deg;opacity:{{ hIn }};translate:{{ hMkTr }};transition:opacity .5s ease 1500ms,translate .6s cubic-bezier(.2,.8,.2,1) 1500ms;text-shadow:0 1px 0 color-mix(in srgb,#fff 70%,transparent)">guesswork → a plan</b>
+        <svg viewBox="0 0 160 120" style="position:absolute;left:30%;top:100%;width:clamp(90px,8vw,130px);height:clamp(70px,6vw,98px);overflow:visible"><path pathLength="1" d="M18 8C30 50 60 84 132 104" style="fill:none;stroke:#C8283E;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:{{ hDraw }};transition:stroke-dashoffset .9s cubic-bezier(.6,0,.2,1) 1700ms" vector-effect="non-scaling-stroke"></path><path pathLength="1" d="M108 84L134 105L104 112" style="fill:none;stroke:#C8283E;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:{{ hDraw }};transition:stroke-dashoffset .9s cubic-bezier(.6,0,.2,1) 2400ms" vector-effect="non-scaling-stroke"></path></svg>
+      </span>
+      <span aria-hidden="true" style="position:absolute;z-index:2;pointer-events:none;translate:-50% -50%;left:83%;top:53%">
+        <svg viewBox="0 0 60 50" style="width:clamp(48px,4.2vw,68px);height:auto;display:block;overflow:visible"><path pathLength="1" d="M6 28C12 32 18 38 22 44C30 28 40 14 55 4" style="fill:none;stroke:#C8283E;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:{{ hDraw }};transition:stroke-dashoffset .9s cubic-bezier(.6,0,.2,1) 2220ms" vector-effect="non-scaling-stroke"></path></svg>
+      </span>
+      <span aria-hidden="true" style="position:absolute;z-index:2;pointer-events:none;translate:-50% -50%;left:89%;top:33%">
+        <b style="position:relative;display:block;padding:10px 18px;font-family:Kalam, cursive;font-weight:700;font-size:clamp(22px,2vw,30px);line-height:1;white-space:nowrap;color:#C8283E;rotate:-4deg;opacity:{{ hIn }};translate:{{ hMkTr }};transition:opacity .5s ease 2540ms,translate .6s cubic-bezier(.2,.8,.2,1) 2540ms;text-shadow:0 1px 0 color-mix(in srgb,#fff 70%,transparent)">risk managed</b>
+        <svg viewBox="0 0 200 90" preserveAspectRatio="none" style="position:absolute;left:-12%;top:-14%;width:124%;height:128%;overflow:visible"><path pathLength="1" d="M160 14C118 0 40 4 14 26C-6 44 16 76 74 84C130 91 190 76 194 50C198 24 160 10 104 10C80 10 60 13 42 20" style="fill:none;stroke:#C8283E;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:{{ hDraw }};transition:stroke-dashoffset .9s cubic-bezier(.6,0,.2,1) 2740ms" vector-effect="non-scaling-stroke"></path></svg>
+      </span>
+    </sc-if>
+    <div style="position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1fr);max-width:clamp(1280px,92vw,1520px);margin:0 auto;min-height:{{ hInMinH }};padding:{{ hInPad }};translate:{{ hInTr }}">
+      <div style="align-self:center;max-width:{{ hCopyMax }};padding-top:24px">
+        <p style="display:inline-flex;align-items:center;gap:10px;margin:0 0 22px;padding:8px 14px 8px 12px;border-radius:999px;background:#fff;font-family:'DM Mono', ui-monospace, monospace;font-size:12.5px;letter-spacing:0.02em;box-shadow:0 1px 0 color-mix(in srgb,#1d1830 8%,transparent),0 10px 30px -18px color-mix(in srgb,#2a1f5c 60%,transparent)"><i style="width:8px;height:8px;border-radius:50%;background:rgb(31,164,99)"></i>New batches open this month</p>
+        <p style="margin:0 0 14px;font-family:'DM Mono', ui-monospace, monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb,#6d6784 80%,#1d1830)">Stock market courses · online &amp; in class</p>
+        <h1 style="margin:0;color:#1d1830;font-family:Fraunces, Georgia, serif;font-weight:560;font-variation-settings:'SOFT' 100, 'opsz' 144;font-size:clamp(44px,5vw,82px);line-height:0.98;letter-spacing:-0.04em;text-wrap:balance">Smarter investing starts with the right <span style="position:relative;display:inline-block;z-index:0">course.<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:-14%;top:-22%;width:128%;height:150%;overflow:visible;pointer-events:none;z-index:-1"><path pathLength="1" d="M150 12C112 2 42 4 16 22C-6 38 12 64 64 72C116 79 184 70 194 46C203 24 172 9 120 8C92 7 66 10 48 16" style="fill:none;stroke:#C8283E;stroke-width:3.2;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:{{ hDraw }};transition:stroke-dashoffset 1.1s cubic-bezier(.6,0,.2,1) 1.2s" vector-effect="non-scaling-stroke"></path></svg></span></h1>
+        <p style="margin:26px 0 0;max-width:520px;font-size:clamp(16px,1.2vw,18.5px);line-height:1.6;color:color-mix(in srgb,#1d1830 82%,#f5f2fb)">One-to-one courses in stocks, mutual funds, chart and company analysis, and futures &amp; options — online or in class. The first class is on us.</p>
+        <div style="display:flex;flex-direction:{{ hCtaDir }};flex-wrap:wrap;gap:12px;margin-top:32px">
+          <a href="#enroll" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:0 7px 0 26px;min-height:56px;border-radius:999px;border:1.5px solid transparent;background:#ffd93d;color:#1d1830;text-decoration:none;white-space:nowrap;font-size:15px;font-weight:600;letter-spacing:-0.005em;transition:background .35s,color .35s" style-hover="background:#1d1830;color:#f5f2fb">Book a free class<span aria-hidden="true" style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#ffd93d;rotate:-35deg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></a>
+          <a href="Courses.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:0 7px 0 26px;min-height:56px;border-radius:999px;border:1.5px solid color-mix(in srgb,#1d1830 22%,transparent);background:color-mix(in srgb,#fff 70%,transparent);color:#1d1830;text-decoration:none;white-space:nowrap;font-size:15px;font-weight:600;letter-spacing:-0.005em;transition:background .35s" style-hover="background:#ffd93d">See all courses<span aria-hidden="true" style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#fff;rotate:-35deg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></a>
+        </div>
+        <dl style="display:flex;flex-wrap:{{ hStatWrap }};justify-content:{{ hStatJustify }};gap:{{ hStatGap }};margin:{{ hStatMt }} 0 0;padding:0">
+          <div style="margin:0"><dt style="position:relative;display:inline-block;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:{{ hStatSize }};letter-spacing:-0.03em;line-height:1">6<svg viewBox="0 0 40 30" aria-hidden="true" style="position:absolute;right:{{ hTickR }};top:{{ hTickT }};width:{{ hTickW }};height:{{ hTickH }};overflow:visible"><path pathLength="1" d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:{{ hDraw }};transition:stroke-dashoffset .5s cubic-bezier(.6,0,.2,1) 1300ms" vector-effect="non-scaling-stroke"></path></svg></dt><dd style="margin:8px 0 0;font-size:{{ hStatDd }};line-height:1.35;color:color-mix(in srgb,#6d6784 80%,#1d1830)">courses, beginner to advanced</dd></div>
+          <div style="margin:0"><dt style="position:relative;display:inline-block;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:{{ hStatSize }};letter-spacing:-0.03em;line-height:1">₹4,300<svg viewBox="0 0 40 30" aria-hidden="true" style="position:absolute;right:{{ hTickR }};top:{{ hTickT }};width:{{ hTickW }};height:{{ hTickH }};overflow:visible"><path pathLength="1" d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:{{ hDraw }};transition:stroke-dashoffset .5s cubic-bezier(.6,0,.2,1) 1520ms" vector-effect="non-scaling-stroke"></path></svg></dt><dd style="margin:8px 0 0;font-size:{{ hStatDd }};line-height:1.35;color:color-mix(in srgb,#6d6784 80%,#1d1830)">courses start from</dd></div>
+          <div style="margin:0"><dt style="position:relative;display:inline-block;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:{{ hStatSize }};letter-spacing:-0.03em;line-height:1">1 : 1<svg viewBox="0 0 40 30" aria-hidden="true" style="position:absolute;right:{{ hTickR }};top:{{ hTickT }};width:{{ hTickW }};height:{{ hTickH }};overflow:visible"><path pathLength="1" d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:{{ hDraw }};transition:stroke-dashoffset .5s cubic-bezier(.6,0,.2,1) 1740ms" vector-effect="non-scaling-stroke"></path></svg></dt><dd style="margin:8px 0 0;font-size:{{ hStatDd }};line-height:1.35;color:color-mix(in srgb,#6d6784 80%,#1d1830)">always, never a group</dd></div>
+        </dl>
+      </div>
+      <ul aria-label="Courses" style="position:{{ hDeckPos }};right:{{ hDeckR }};bottom:{{ hDeckB }};z-index:4;display:flex;justify-content:flex-start;width:{{ hDeckW }};max-width:100%;list-style:none;margin:{{ hDeckMargin }};padding:0 0 0 26px;perspective:1200px">
+        <sc-for list="{{ deck }}" as="k" hint-placeholder-count="3">
+          <li onMouseEnter="{{ k.onEnter }}" onMouseLeave="{{ k.onLeave }}" style="position:relative;flex:1 1 0;max-width:{{ cardW }};min-width:0;aspect-ratio:3 / 4;margin-left:-22px;rotate:{{ k.rot }};translate:{{ k.ty }};z-index:{{ k.z }};transition:rotate .6s cubic-bezier(.2,.8,.2,1),translate .6s cubic-bezier(.2,.8,.2,1)">
+            <button type="button" onClick="{{ k.onFlip }}" aria-pressed="{{ k.flipped }}" aria-label="{{ k.name }}" style="position:absolute;inset:0;z-index:{{ k.btnZ }};background:none;border:0;border-radius:16px;padding:0;cursor:pointer"></button>
+            <div style="position:absolute;inset:0;transform-style:preserve-3d;transform:{{ k.flipT }};transition:transform .8s cubic-bezier(.6,-.1,.2,1.1)">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:10px 10px 14px;border-radius:16px;backface-visibility:hidden;visibility:{{ k.frontVis }};background:#fff;box-shadow:0 30px 60px -28px color-mix(in srgb,#140f2a 60%,transparent),0 2px 0 color-mix(in srgb,#1d1830 6%,transparent);overflow:hidden">
+                <div style="flex:1 1 0%;border-radius:10px;overflow:hidden;background:#ded8ee"><img src="{{ k.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;scale:{{ k.imgScale }};transition:scale .8s cubic-bezier(.2,.8,.2,1)"></div>
+                <p style="margin:12px 4px 0;font-family:Fraunces, Georgia, serif;font-size:clamp(16px,1.35vw,20px);font-weight:600;letter-spacing:-0.02em;line-height:1.08;overflow-wrap:anywhere;text-wrap:balance">{{ k.name }}</p>
+                <p style="display:flex;flex-wrap:wrap;align-items:center;gap:2px 7px;margin:8px 4px 0;font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.02em;color:color-mix(in srgb,#6d6784 80%,#1d1830)"><i aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:rgb(31,164,99)"></i><span>{{ k.level }}</span><span>{{ k.price }}</span></p>
+              </div>
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:18px 16px;border-radius:16px;backface-visibility:hidden;visibility:{{ k.backVis }};transform:rotateY(180deg);background:#fff;background-image:repeating-linear-gradient(180deg,transparent 0 27px,color-mix(in srgb,#1d1830 12%,transparent) 27px 28px);box-shadow:0 30px 60px -28px color-mix(in srgb,#140f2a 60%,transparent),0 2px 0 color-mix(in srgb,#1d1830 6%,transparent);overflow:hidden">
+                <p style="margin:0;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase">{{ k.level }}</p>
+                <p style="margin:auto 0 0;font-family:Fraunces, Georgia, serif;font-size:22px;font-weight:600;letter-spacing:-0.02em;line-height:1.05">{{ k.name }}</p>
+                <p style="margin:8px 0 0;font-size:13px;line-height:1.4">{{ k.sub }}</p>
+                <p style="margin:10px 0 0;font-family:'DM Mono', ui-monospace, monospace;font-size:12px">{{ k.price }}</p>
+                <a href="#enroll" onClick="{{ k.onEnroll }}" style="position:relative;z-index:3;margin-top:10px;color:#1d1830;font-family:Kalam, cursive;font-weight:700;font-size:15.5px;line-height:1.2;text-decoration:underline;text-decoration-color:#C8283E;text-underline-offset:3px">Enroll →</a>
+              </div>
+            </div>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section data-screen-label="Course box" ref="{{ boxRef }}" style="position:relative;background:#f5f2fb;color:#1d1830;height:{{ boxH }}">
+    <div style="position:{{ boxStagePos }};top:0;height:{{ boxStageH }};overflow:hidden;display:{{ boxStageDisplay }};grid-template-columns:minmax(0,0.8fr) minmax(0,1.25fr);gap:clamp(24px,3vw,56px);max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:{{ boxStagePad }}">
+      <div style="align-self:center;max-width:460px">
+        <p style="display:inline-flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin:0;padding:7px 12px 7px 10px;border-radius:4px;border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-left:3px solid #ffd93d;font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase"><i aria-hidden="true" style="width:5px;height:5px;border-radius:1px;background:#ffd93d;display:block;flex:0 0 auto"></i>Courses</p>
+        <h2 style="margin:14px 0 0;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(40px,4.2vw,66px);line-height:1.02;letter-spacing:-0.04em;text-wrap:balance">Every skill, one <span style="position:relative;display:inline-block;z-index:0">course<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:-14%;top:-22%;width:128%;height:150%;overflow:visible;pointer-events:none;z-index:-1"><path d="M150 12C112 2 42 4 16 22C-6 38 12 64 64 72C116 79 184 70 194 46C203 24 172 9 120 8C92 7 66 10 48 16" style="fill:none;stroke:#C8283E;stroke-width:3.2;stroke-linecap:round" vector-effect="non-scaling-stroke"></path></svg></span> away.</h2>
+        <p style="margin:22px 0 28px;font-size:17px;line-height:1.6;color:color-mix(in srgb,#6d6784 80%,#1d1830)">From reading your first balance sheet to trading futures &amp; options. Each course covers one skill, from the basics to strategies you can use.</p>
+        <a href="Courses.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:0 7px 0 26px;min-height:56px;border-radius:999px;background:#1d1830;color:#f5f2fb;text-decoration:none;white-space:nowrap;font-size:15px;font-weight:600;letter-spacing:-0.005em;transition:background .35s,color .35s" style-hover="background:#ffd93d;color:#1d1830">See all courses<span aria-hidden="true" style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#ffd93d;color:#1d1830;rotate:-35deg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></a>
+        <p style="margin:34px 0 0;font-family:'DM Mono', ui-monospace, monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb,#6d6784 80%,#1d1830)"><b style="color:#1d1830;font-weight:500">6</b> courses · scroll to open the box</p>
+      </div>
+      <div style="position:relative;container-type:{{ deckCt }};display:{{ deckDisplay }};grid-template-columns:1fr 1fr;gap:14px;margin-top:{{ deckMt }}">
+        <sc-for list="{{ sCards }}" as="k" hint-placeholder-count="6">
+          <a href="{{ k.href }}" onMouseEnter="{{ k.onEnter }}" onMouseLeave="{{ k.onLeave }}" style="position:{{ k.pos }};left:0;top:0;width:{{ k.w }};aspect-ratio:3 / 4.1;display:flex;flex-direction:column;padding:9px;border-radius:14px;background:#fff;color:#1d1830;text-decoration:none;box-shadow:{{ k.shadow }};translate:{{ k.tr }};rotate:{{ k.rot }};scale:{{ k.sc }};z-index:{{ k.z }};transition:box-shadow .4s,scale .5s cubic-bezier(.2,.8,.2,1)">
+            <span style="position:absolute;right:14px;top:-13px;padding:3px 9px 4px;border-radius:6px 6px 0 0;background:#ffd93d;font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.06em">{{ k.n }}</span>
+            <span style="flex:1 1 0%;min-height:0;border-radius:9px;overflow:hidden;background:#ded8ee"><img src="{{ k.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;scale:{{ k.imgSc }};transition:scale .8s cubic-bezier(.2,.8,.2,1)"></span>
+            <span style="display:flex;flex-direction:column;padding:12px 6px 4px">
+              <b style="position:relative;align-self:flex-start;max-width:100%;overflow-wrap:anywhere;text-wrap:balance;font-family:Fraunces, Georgia, serif;font-size:clamp(14px,1.15vw,20px);font-weight:560;letter-spacing:-0.02em;line-height:1.05">{{ k.name }}<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:0;bottom:-7px;width:100%;height:8px;overflow:visible"><path pathLength="1" d="M2 6C30 3 70 3 98 5" style="fill:none;stroke:#C8283E;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:{{ k.dash }};transition:stroke-dashoffset .5s cubic-bezier(.6,0,.2,1)" vector-effect="non-scaling-stroke"></path></svg></b>
+              <i style="font-style:normal;margin-top:9px;font-size:12.5px;line-height:1.35;color:color-mix(in srgb,#6d6784 80%,#1d1830)">{{ k.level }}</i>
+              <em style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;font-style:normal;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase">{{ k.price }} <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></em>
+            </span>
+          </a>
+        </sc-for>
+        <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+          <div aria-hidden="true" style="position:absolute;left:50%;bottom:-8cqh;width:44cqw;height:26cqh;border-radius:14px 14px 0 0;background:#2a1f5c;z-index:12;box-shadow:inset 0 10px 0 color-mix(in srgb,#fff 12%,transparent);opacity:{{ boxOpacity }};translate:{{ boxTr }};display:grid;place-items:start center;padding-top:5cqh">
+            <span style="color:#ffd93d;font-family:Kalam, cursive;font-weight:700;font-size:clamp(20px,1.7vw,28px);rotate:-3deg">Courses A–Z</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="How it works" ref="{{ twmRef }}" style="position:relative;background:#f5f2fb;color:#fff;height:{{ twmH }}">
+    <div style="position:{{ boxStagePos }};top:0;height:{{ boxStageH }};overflow:hidden">
+      <div aria-hidden="true" style="position:absolute;inset:0;background:#2a1f5c;clip-path:{{ bandClip }};background-image:repeating-linear-gradient(180deg,transparent 0 47px,color-mix(in srgb,#fff 6%,transparent) 47px 48px)"></div>
+      <div style="position:relative;display:grid;grid-template-columns:{{ twmCols }};gap:clamp(28px,4vw,72px);align-items:center;height:{{ twmGridH }};max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:{{ twmPad }}">
+        <div>
+          <p style="display:inline-flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin:0;padding:7px 12px 7px 10px;border-radius:4px;border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-left:3px solid #ffd93d;font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase"><i aria-hidden="true" style="width:5px;height:5px;border-radius:1px;background:#ffd93d;display:block;flex:0 0 auto"></i>How it works</p>
+          <h2 style="margin:14px 0 0;color:#fff;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(38px,3.9vw,60px);line-height:1.02;letter-spacing:-0.04em">From first class to <span style="position:relative;display:inline-block;z-index:0">confident<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:-14%;top:-22%;width:128%;height:150%;overflow:visible;pointer-events:none;z-index:-1"><path d="M150 12C112 2 42 4 16 22C-6 38 12 64 64 72C116 79 184 70 194 46C203 24 172 9 120 8C92 7 66 10 48 16" style="fill:none;stroke:#C8283E;stroke-width:3.2;stroke-linecap:round" vector-effect="non-scaling-stroke"></path></svg></span> investing.</h2>
+          <ol style="list-style:none;margin:30px 0 0;padding:0">
+            <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+              <li tabindex="0" onMouseEnter="{{ s.onPick }}" onFocus="{{ s.onPick }}" onClick="{{ s.onPick }}" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:start;padding:15px 0;border-top:1px solid color-mix(in srgb,#fff 16%,transparent);cursor:default">
+                <span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;letter-spacing:0.08em;padding-top:5px;color:{{ s.noColor }};transition:color .4s">{{ s.n }}</span>
+                <span>
+                  <b style="position:relative;display:inline-block;font-family:Fraunces, Georgia, serif;font-size:clamp(19px,1.5vw,23px);font-weight:560;letter-spacing:-0.015em;color:{{ s.bColor }};transition:color .4s">{{ s.title }}<svg viewBox="0 0 40 30" aria-hidden="true" style="position:absolute;right:-30px;top:-6px;width:24px;height:18px;overflow:visible"><path pathLength="1" d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#ffd93d;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:{{ s.tick }};transition:stroke-dashoffset .5s cubic-bezier(.6,0,.2,1)" vector-effect="non-scaling-stroke"></path></svg></b>
+                  <span style="display:grid;grid-template-rows:{{ s.rows }};margin-top:{{ s.mt }};font-size:15px;line-height:1.55;color:color-mix(in srgb,#fff 78%,transparent);overflow:hidden;transition:grid-template-rows .6s cubic-bezier(.2,.8,.2,1),margin .6s"><span style="min-height:0">{{ s.desc }}</span></span>
+                </span>
+                <span style="font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid {{ s.wBorder }};background:{{ s.wBg }};color:{{ s.wColor }};white-space:nowrap;transition:background .4s,color .4s,border-color .4s">{{ s.when }}</span>
+              </li>
+            </sc-for>
+          </ol>
+          <div style="margin-top:26px">
+            <a href="#enroll" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:0 7px 0 26px;min-height:56px;border-radius:999px;background:#ffd93d;color:#1d1830;text-decoration:none;white-space:nowrap;font-size:15px;font-weight:600;letter-spacing:-0.005em;transition:background .35s,color .35s" style-hover="background:#fff;color:#1d1830">Book a free counselling call<span aria-hidden="true" style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#ffd93d;rotate:-35deg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></a>
+          </div>
+        </div>
+        <div style="position:relative;height:{{ twmMediaH }};aspect-ratio:{{ twmMediaAR }};border-radius:8px;order:{{ twmMediaOrder }}">
+          <sc-for list="{{ stepFigs }}" as="f" hint-placeholder-count="4">
+            <figure style="position:absolute;inset:0;margin:0;border-radius:8px;overflow:hidden;background:#140f2a;z-index:{{ f.z }};clip-path:{{ f.clip }};opacity:{{ f.op }}">
+              <img src="{{ f.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;scale:{{ f.sc }}">
+              <figcaption style="position:absolute;left:22px;bottom:18px;display:flex;align-items:baseline;gap:12px;color:#fff;font-family:Kalam, cursive;font-weight:700;font-size:22px;text-shadow:0 2px 14px color-mix(in srgb,#140f2a 60%,transparent)"><em style="font-style:normal;font-size:clamp(90px,9vw,150px);line-height:0.8;color:#ffd93d">{{ f.num }}</em>{{ f.when }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="After a course" ref="{{ twbRef }}" style="position:relative;background:#140f2a;color:#fff;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,color-mix(in srgb,#2a1f5c 70%,transparent),transparent 70%),repeating-radial-gradient(circle at 30% 20%,color-mix(in srgb,#fff 3%,transparent) 0 1px,transparent 1px 3px)"></div>
+    <div style="position:relative;min-height:max(100svh,640px);display:grid;place-items:center;padding:{{ twbPad }}">
+      <sc-if value="{{ showFly }}" hint-placeholder-val="{{ true }}">
+        <sc-for list="{{ flyPhotos }}" as="p" hint-placeholder-count="4">
+          <figure aria-hidden="true" style="position:absolute;margin:0;left:{{ p.l }};right:{{ p.r }};top:{{ p.t }};bottom:{{ p.b }};width:clamp(150px,17vw,270px);aspect-ratio:4 / 5;border-radius:10px;overflow:hidden;box-shadow:rgb(0,0,0) 0 30px 60px -30px;border:6px solid color-mix(in srgb,#fff 92%,transparent);translate:{{ p.tr }};rotate:{{ p.rot }}">
+            <img src="{{ p.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+          </figure>
+        </sc-for>
+      </sc-if>
+      <div style="position:relative;z-index:2;max-width:760px;text-align:center">
+        <p style="margin:0 0 20px;font-family:'DM Mono', ui-monospace, monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:color-mix(in srgb,#fff 60%,transparent)">After a course with us</p>
+        <h2 style="margin:0;font-family:Kalam, cursive;font-weight:700;letter-spacing:-0.01em;font-size:clamp(48px,5.4vw,92px);line-height:1.02;text-wrap:balance;color:color-mix(in srgb,#fff 94%,transparent);text-shadow:0 0 1px color-mix(in srgb,#fff 60%,transparent)">Investing stops being a <span style="position:relative;display:inline-block;z-index:0">gamble.<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:-14%;top:-22%;width:128%;height:150%;overflow:visible;pointer-events:none;z-index:-1"><path pathLength="1" d="M150 12C112 2 42 4 16 22C-6 38 12 64 64 72C116 79 184 70 194 46C203 24 172 9 120 8C92 7 66 10 48 16" style="fill:none;stroke:#ffd93d;stroke-width:3.2;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:{{ twbLoop }};transition:stroke-dashoffset 1.1s cubic-bezier(.6,0,.2,1) .4s" vector-effect="non-scaling-stroke"></path></svg></span></h2>
+        <dl style="display:flex;flex-direction:{{ twbStatsDir }};align-items:center;justify-content:center;gap:clamp(22px,4vw,64px);margin:44px 0 0;padding:0">
+          <div style="margin:0"><dt style="font-family:Kalam, cursive;font-weight:700;font-size:clamp(34px,3vw,48px);line-height:1;color:#ffd93d">6</dt><dd style="margin:8px auto 0;max-width:170px;font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb,#fff 70%,transparent)">courses, beginner to advanced</dd></div>
+          <div style="margin:0"><dt style="font-family:Kalam, cursive;font-weight:700;font-size:clamp(34px,3vw,48px);line-height:1;color:#ffd93d">1 : 1</dt><dd style="margin:8px auto 0;max-width:170px;font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb,#fff 70%,transparent)">always, never a group</dd></div>
+          <div style="margin:0"><dt style="font-family:Kalam, cursive;font-weight:700;font-size:clamp(34px,3vw,48px);line-height:1;color:#ffd93d">₹48,600</dt><dd style="margin:8px auto 0;max-width:170px;font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb,#fff 70%,transparent)">for all six courses</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Reviews" ref="{{ twvRef }}" style="position:relative;background:#f5f2fb;color:#1d1830;background-image:radial-gradient(color-mix(in srgb,#2a1f5c 12%,transparent) 1px,transparent 1.5px);background-size:22px 22px">
+    <div style="max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:clamp(90px,11vw,150px) clamp(20px,4vw,56px) clamp(100px,12vw,170px)">
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:clamp(50px,5vw,80px)">
+        <p style="display:inline-flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin:0;padding:7px 12px 7px 10px;border-radius:4px;border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-left:3px solid #ffd93d;font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase"><i aria-hidden="true" style="width:5px;height:5px;border-radius:1px;background:#ffd93d;display:block;flex:0 0 auto"></i>Students</p>
+        <h2 style="margin:14px 0 0;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(42px,4.6vw,76px);line-height:1.02;letter-spacing:-0.04em;text-wrap:balance">Notes from the trading <span style="position:relative;display:inline-block;z-index:0">desk.<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:-14%;top:-22%;width:128%;height:150%;overflow:visible;pointer-events:none;z-index:-1"><path d="M150 12C112 2 42 4 16 22C-6 38 12 64 64 72C116 79 184 70 194 46C203 24 172 9 120 8C92 7 66 10 48 16" style="fill:none;stroke:#C8283E;stroke-width:3.2;stroke-linecap:round" vector-effect="non-scaling-stroke"></path></svg></span></h2>
+        <p style="display:inline-flex;align-items:center;gap:10px;margin:20px 0 0;padding:9px 16px;border-radius:999px;background:#fff;font-family:'DM Mono', ui-monospace, monospace;font-size:12px;letter-spacing:0.04em"><span aria-hidden="true" style="display:flex;color:#f5a623"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.4 9.6l6.7-.9z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.4 9.6l6.7-.9z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.4 9.6l6.7-.9z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.4 9.6l6.7-.9z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.4 9.6l6.7-.9z"></path></svg></span>What our students say</p>
+      </div>
+      <ul style="columns:3 280px;column-gap:clamp(20px,2.4vw,40px);list-style:none;margin:0;padding:12px 0 0">
+        <sc-for list="{{ notes }}" as="n" hint-placeholder-count="6">
+          <li onMouseEnter="{{ n.onEnter }}" onMouseLeave="{{ n.onLeave }}" style="position:relative;display:inline-block;width:100%;box-sizing:border-box;break-inside:avoid;margin:{{ n.margin }};padding:{{ n.pad }};background:{{ n.bg }};color:#1d1830;border-radius:2px 2px 18px 2px;box-shadow:{{ n.shadow }};rotate:{{ n.rot }};opacity:{{ n.op }};translate:{{ n.tr }};scale:{{ n.sc }};transition:opacity .3s ease {{ n.d }},translate .7s cubic-bezier(.3,1.5,.5,1) {{ n.d }},scale .7s cubic-bezier(.3,1.5,.5,1) {{ n.d }},rotate .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s">
+            <span aria-hidden="true" style="position:absolute;left:50%;top:-9px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff7a8e,#C8283E 60%,#9c1c2e);box-shadow:rgba(0,0,0,.35) 0 4px 6px -2px"></span>
+            <blockquote style="margin:0;font-family:Kalam, cursive;font-weight:400;font-size:clamp(19px,1.45vw,23px);line-height:1.32">{{ n.q }}</blockquote>
+            <footer style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:20px">
+              <cite style="font-style:normal;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb,#1d1830 70%,transparent)">{{ n.who }}</cite>
+              <b style="font-family:Kalam, cursive;font-weight:700;font-size:20px;color:#C8283E;white-space:nowrap;rotate:-4deg">{{ n.tag }}</b>
+            </footer>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section data-screen-label="Questions" style="position:relative;background:#f5f2fb;color:#1d1830">
+    <div style="display:grid;grid-template-columns:{{ faqCols }};gap:clamp(30px,5vw,90px);align-items:start;max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:{{ faqPad }}">
+      <div style="position:{{ faqSidePos }};top:120px">
+        <p style="display:inline-flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin:0;padding:7px 12px 7px 10px;border-radius:4px;border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-left:3px solid #ffd93d;font-family:'DM Mono', ui-monospace, monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase"><i aria-hidden="true" style="width:5px;height:5px;border-radius:1px;background:#ffd93d;display:block;flex:0 0 auto"></i>Questions</p>
+        <h2 style="margin:14px 0 0;font-family:Fraunces, Georgia, serif;font-weight:560;font-size:clamp(38px,3.8vw,58px);line-height:1.02;letter-spacing:-0.04em">Questions students <span style="position:relative;display:inline-block;z-index:0">always<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:-14%;top:-22%;width:128%;height:150%;overflow:visible;pointer-events:none;z-index:-1"><path d="M150 12C112 2 42 4 16 22C-6 38 12 64 64 72C116 79 184 70 194 46C203 24 172 9 120 8C92 7 66 10 48 16" style="fill:none;stroke:#C8283E;stroke-width:3.2;stroke-linecap:round" vector-effect="non-scaling-stroke"></path></svg></span> ask.</h2>
+        <p style="margin:22px 0;max-width:340px;font-size:16.5px;line-height:1.6;color:color-mix(in srgb,#6d6784 80%,#1d1830)">Still stuck? Call us — a real person answers.</p>
+        <a href="Contact.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:0 7px 0 26px;min-height:56px;border-radius:999px;background:#1d1830;color:#f5f2fb;text-decoration:none;white-space:nowrap;font-size:15px;font-weight:600;letter-spacing:-0.005em;transition:background .35s,color .35s" style-hover="background:#ffd93d;color:#1d1830">Talk to us<span aria-hidden="true" style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#ffd93d;color:#1d1830;rotate:-35deg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></a>
+      </div>
+      <div style="padding:clamp(26px,3vw,46px) clamp(22px,3vw,48px);background:#fff;border-radius:4px;box-shadow:0 40px 60px -44px color-mix(in srgb,#140f2a 60%,transparent),0 1px 2px color-mix(in srgb,#140f2a 12%,transparent);background-image:{{ paperLine }}">
+        <div style="display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding-bottom:22px;margin-bottom:6px;border-bottom:2px solid #1d1830">
+          <div>
+            <b style="font-family:Fraunces, Georgia, serif;font-size:22px;font-weight:560;letter-spacing:-0.02em">The Investor Brain · Student paper</b>
+            <p style="margin:6px 0 0;font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.04em;color:color-mix(in srgb,#6d6784 80%,#1d1830)">Answer none of the questions. Read as many as you like.</p>
+          </div>
+          <div aria-live="polite" style="display:flex;align-items:baseline;padding:4px 14px;border:2.5px solid #C8283E;border-radius:50%;color:#C8283E;font-family:Kalam, cursive;font-weight:700;font-size:30px;rotate:-8deg;white-space:nowrap"><span>{{ faqScore }}</span><i style="font-style:normal;font-size:0.6em">/{{ faqTotal }}</i></div>
+        </div>
+        <ol style="list-style:none;margin:0;padding:0">
+          <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+            <li style="border-bottom:1px dashed #ded8ee">
+              <button type="button" aria-expanded="{{ f.exp }}" onClick="{{ f.onToggle }}" style="display:grid;grid-template-columns:{{ faqBtnCols }};gap:10px;align-items:baseline;width:100%;padding:20px 0;border:0;background:none;text-align:left;color:#1d1830;cursor:pointer;font:inherit">
+                <span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:color-mix(in srgb,#6d6784 80%,#1d1830)">Q{{ f.n }}.</span>
+                <span style="font-family:Fraunces, Georgia, serif;font-size:clamp(18px,1.5vw,22px);font-weight:500;letter-spacing:-0.01em;line-height:1.3;transition:color .3s" style-hover="color:#2a1f5c">{{ f.q }}</span>
+                <span style="font-family:'DM Mono', ui-monospace, monospace;font-size:12px;color:#C8283E;text-align:right">[{{ f.m }}]</span>
+              </button>
+              <div style="display:grid;grid-template-rows:{{ f.rows }};transition:grid-template-rows .6s cubic-bezier(.2,.8,.2,1)">
+                <div style="overflow:hidden;padding:0 {{ faqAPad }}">
+                  <p style="margin:0;font-family:Kalam, cursive;font-weight:400;font-size:19px;line-height:1.45;color:#2a1f5c"><em style="font-style:normal;font-family:Kalam, cursive;font-weight:700;color:#C8283E">A:</em> {{ f.a }}</p>
+                  <svg viewBox="0 0 300 10" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:60%;height:10px;margin:6px 0 22px;overflow:visible"><path pathLength="1" d="M2 6C80 2 200 3 298 5" style="fill:none;stroke:#C8283E;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:{{ f.dash }};transition:stroke-dashoffset .7s cubic-bezier(.6,0,.2,1) .25s" vector-effect="non-scaling-stroke"></path></svg>
+                </div>
+              </div>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="enroll" data-screen-label="Enroll" style="position:relative;isolation:isolate;overflow:hidden;color:#1d1830;background:#140f2a;z-index:12">
+    <div style="position:absolute;inset:0;z-index:-2"><img src="assets/images/cta.webp" alt="Three students laughing over a laptop at a study table" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div aria-hidden="true" style="position:absolute;inset:-4%;z-index:-1;background:#ffd93d;clip-path:{{ ctaClip }}"></div>
+    <div style="display:grid;grid-template-columns:{{ ctaCols }};gap:clamp(30px,5vw,90px);align-items:center;min-height:min(100vh,940px);max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:clamp(90px,11vw,150px) clamp(20px,4vw,56px)">
+      <div style="max-width:600px">
+        <h2 style="margin:0;font-family:Fraunces, Georgia, serif;font-weight:560;font-variation-settings:'SOFT' 100;font-size:clamp(52px,5.6vw,96px);line-height:0.98;letter-spacing:-0.04em">Your first class is on <span style="position:relative;display:inline-block;z-index:0">us.<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:-14%;top:-22%;width:128%;height:150%;overflow:visible;pointer-events:none;z-index:-1"><path d="M150 12C112 2 42 4 16 22C-6 38 12 64 64 72C116 79 184 70 194 46C203 24 172 9 120 8C92 7 66 10 48 16" style="fill:none;stroke:#C8283E;stroke-width:3.2;stroke-linecap:round" vector-effect="non-scaling-stroke"></path></svg></span></h2>
+        <p style="margin:24px 0 0;max-width:430px;font-size:17.5px;line-height:1.6">Tell us the course and your experience level. We'll call within one working day with a mentor and a batch time that suits you.</p>
+      </div>
+      <div style="padding:clamp(24px,2.6vw,38px);border-radius:18px;background:#fff;box-shadow:0 40px 80px -40px color-mix(in srgb,#140f2a 80%,transparent)">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form novalidate="" onSubmit="{{ onSubmit }}">
+            <p style="margin:0 0 18px;font-family:Fraunces, Georgia, serif;font-size:26px;font-weight:560;letter-spacing:-0.02em">Book the free class</p>
+            <label style="position:relative;display:block;margin-bottom:14px">
+              <input type="text" autocomplete="name" value="{{ fName }}" onChange="{{ onName }}" onFocus="{{ focusName }}" onBlur="{{ blurField }}" style="display:block;width:100%;height:58px;padding:22px 16px 6px;border:1.5px solid {{ nameBorder }};border-radius:12px;background:#fff;color:#1d1830;font:inherit;font-size:16px;outline:none;transition:border-color .3s">
+              <span style="position:absolute;left:17px;top:19px;font-size:15px;color:{{ nameLblColor }};pointer-events:none;transform-origin:0 0;translate:{{ nameLblY }};scale:{{ nameLblS }};transition:translate .25s,scale .25s,color .25s">Your name</span>
+            </label>
+            <label style="position:relative;display:block;margin-bottom:14px">
+              <input type="text" autocomplete="email" value="{{ fContact }}" onChange="{{ onContact }}" onFocus="{{ focusContact }}" onBlur="{{ blurField }}" style="display:block;width:100%;height:58px;padding:22px 16px 6px;border:1.5px solid {{ contactBorder }};border-radius:12px;background:#fff;color:#1d1830;font:inherit;font-size:16px;outline:none;transition:border-color .3s">
+              <span style="position:absolute;left:17px;top:19px;font-size:15px;color:{{ contactLblColor }};pointer-events:none;transform-origin:0 0;translate:{{ contactLblY }};scale:{{ contactLblS }};transition:translate .25s,scale .25s,color .25s">Email or phone</span>
+            </label>
+            <div style="display:grid;grid-template-columns:{{ formRow }};gap:0 12px">
+              <label style="position:relative;display:block;margin-bottom:14px">
+                <select value="{{ fCourse }}" onChange="{{ onCourse }}" style="display:block;width:100%;height:58px;padding:22px 34px 6px 16px;border:1.5px solid #ded8ee;border-radius:12px;background:#fff;color:#1d1830;font:inherit;font-size:16px;appearance:none;-webkit-appearance:none;outline:none;text-overflow:ellipsis">
+                  <option value=""></option>
+                  <sc-for list="{{ courseOpts }}" as="o" hint-placeholder-count="7"><option value="{{ o }}">{{ o }}</option></sc-for>
+                </select>
+                <span style="position:absolute;left:17px;top:19px;font-size:15px;color:{{ courseLblColor }};pointer-events:none;transform-origin:0 0;translate:{{ courseLblY }};scale:{{ courseLblS }};transition:translate .25s,scale .25s">Course</span>
+                <i aria-hidden="true" style="position:absolute;right:16px;top:25px;width:8px;height:8px;border-right:1.6px solid #1d1830;border-bottom:1.6px solid #1d1830;rotate:45deg;pointer-events:none"></i>
+              </label>
+              <label style="position:relative;display:block;margin-bottom:14px">
+                <select value="{{ fLevel }}" onChange="{{ onLevel }}" style="display:block;width:100%;height:58px;padding:22px 34px 6px 16px;border:1.5px solid #ded8ee;border-radius:12px;background:#fff;color:#1d1830;font:inherit;font-size:16px;appearance:none;-webkit-appearance:none;outline:none">
+                  <option value=""></option>
+                  <sc-for list="{{ levelOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for>
+                </select>
+                <span style="position:absolute;left:17px;top:19px;font-size:15px;color:{{ levelLblColor }};pointer-events:none;transform-origin:0 0;translate:{{ levelLblY }};scale:{{ levelLblS }};transition:translate .25s,scale .25s">Experience</span>
+                <i aria-hidden="true" style="position:absolute;right:16px;top:25px;width:8px;height:8px;border-right:1.6px solid #1d1830;border-bottom:1.6px solid #1d1830;rotate:45deg;pointer-events:none"></i>
+              </label>
+            </div>
+            <sc-if value="{{ courseTotal }}" hint-placeholder-val="{{ false }}">
+              <p style="display:flex;justify-content:space-between;gap:12px;margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#f5f2fb;font-family:'DM Mono', ui-monospace, monospace;font-size:12.5px;letter-spacing:0.03em"><span>Course fee</span><b style="font-weight:500">{{ courseTotal }}</b></p>
+            </sc-if>
+            <button type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;width:100%;margin-top:6px;padding:0 7px 0 26px;min-height:56px;border:0;border-radius:999px;background:#ffd93d;color:#1d1830;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;transition:background .35s,color .35s" style-hover="background:#1d1830;color:#f5f2fb">Book my free class<span style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#ffd93d;rotate:-35deg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></button>
+            <p style="margin:14px 0 0;text-align:center;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.06em;color:color-mix(in srgb,#6d6784 80%,#1d1830)">No card needed · no contract</p>
+          </form>
+        </sc-if>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;justify-items:center;gap:12px;padding:30px 10px;text-align:center">
+            <svg viewBox="0 0 40 30" style="width:64px;height:48px;overflow:visible"><path d="M4 16C8 19 11 23 14 27C19 17 26 9 36 3" style="fill:none;stroke:#C8283E;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round" vector-effect="non-scaling-stroke"></path></svg>
+            <p style="margin:0;font-family:Kalam, cursive;font-weight:700;font-size:24px">Thanks — we'll call you within one working day.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position:relative;overflow:hidden;background:#2a1f5c;color:#fff;background-image:radial-gradient(120% 80% at 80% 0%,color-mix(in srgb,#fff 7%,transparent),transparent 60%)">
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <span aria-hidden="true" style="position:absolute;right:clamp(28px,5vw,80px);top:0;bottom:0;width:16px;background:#140f2a;box-shadow:inset 3px 0 0 color-mix(in srgb,#fff 8%,transparent)"></span>
+    </sc-if>
+    <div style="position:relative;max-width:clamp(1280px,92vw,1520px);margin:0 auto;padding:clamp(80px,9vw,120px) {{ ftPadR }} 30px clamp(20px,4vw,56px)">
+      <div style="display:grid;grid-template-columns:{{ ftCols }};gap:clamp(30px,4vw,64px)">
+        <div>
+          <p style="margin:0;max-width:300px;font-size:18px;line-height:1.5;color:color-mix(in srgb,#fff 88%,transparent)">One-to-one stock market courses — from your first share to futures &amp; options.</p>
+          <div style="display:grid;gap:8px;margin-top:26px;font-family:'DM Mono', ui-monospace, monospace;font-size:12.5px;letter-spacing:0.03em;color:color-mix(in srgb,#fff 70%,transparent)">
+            <a href="tel:+910000000000" style="color:#fff;text-decoration:none" style-hover="color:#ffd93d">+91 XXXXX XXXXX</a>
+            <a href="mailto:hello@theinvestorbrain.in" style="color:#fff;text-decoration:none" style-hover="color:#ffd93d">hello@theinvestorbrain.in</a>
+            <span>Your address, City, State – PIN</span>
+            <span>Mon–Sat · 08:00–20:00</span>
+          </div>
+        </div>
+        <nav aria-label="Footer" style="display:grid;grid-template-columns:{{ ftNavCols }};gap:20px">
+          <sc-for list="{{ ftNav }}" as="col" hint-placeholder-count="3">
+            <div>
+              <p style="margin:0 0 16px;font-family:'DM Mono', ui-monospace, monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb,#fff 55%,transparent)">{{ col.title }}</p>
+              <ul style="list-style:none;margin:0;padding:0;display:grid;gap:10px">
+                <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5">
+                  <li><a href="{{ l.href }}" style="color:#fff;text-decoration:none;font-size:15px">{{ l.label }}</a></li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-for>
+        </nav>
+        <div>
+          <p style="margin:0 0 14px;font-family:Kalam, cursive;font-weight:700;font-size:24px;color:#ffd93d">A free market note, every Sunday</p>
+          <label style="position:relative;display:block;margin-bottom:12px">
+            <input type="email" autocomplete="email" placeholder=" " style="display:block;width:100%;height:56px;padding:22px 16px 6px;border:1.5px solid color-mix(in srgb,#fff 25%,transparent);border-radius:12px;background:color-mix(in srgb,#fff 6%,transparent);color:#fff;font:inherit;font-size:16px;outline:none">
+            <span style="position:absolute;left:17px;top:18px;font-size:15px;color:color-mix(in srgb,#fff 65%,transparent);pointer-events:none">Your email</span>
+          </label>
+          <button type="button" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;width:100%;padding:0 7px 0 26px;min-height:56px;border:0;border-radius:999px;background:#ffd93d;color:#1d1830;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;transition:background .35s,color .35s" style-hover="background:#fff">Send it<span style="display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1d1830;color:#ffd93d;rotate:-35deg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span></button>
+        </div>
+      </div>
+      <p aria-label="The Investor Brain" style="position:relative;margin:clamp(50px,6vw,90px) 0 0;font-family:Fraunces, Georgia, serif;font-size:clamp(44px,9.5vw,190px);line-height:0.86;font-weight:600;letter-spacing:-0.05em;color:#ffd93d">The Investor Brain</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:30px;padding-top:20px;border-top:1px solid color-mix(in srgb,#fff 15%,transparent);font-family:'DM Mono', ui-monospace, monospace;font-size:11.5px;letter-spacing:0.04em;color:color-mix(in srgb,#fff 60%,transparent)">
+        <span>© 2026 The Investor Brain. All rights reserved.</span>
+        <span style="display:flex;gap:18px"><a href="https://instagram.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">Instagram</a><a href="https://youtube.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">YouTube</a></span>
+        <span>Investing involves market risk.</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: 1280, hov: -1, step: 0, mx: 0, my: 0, fName: '', fContact: '', fCourse: '', fLevel: '', focus: '', sent: false, hovCard: -1, flip: -1, pp: 0, pp2: 0, hovS: -1, rv: 0, vOn: false, hovN: -1, faqOpen: [0] };
+  listRef = React.createRef();
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => {
+        this.raf = 0;
+        const prog = ref => {
+          const el = ref.current; if (!el) return 0;
+          const b = el.getBoundingClientRect(), span = b.height - window.innerHeight;
+          return span > 0 ? Math.min(1, Math.max(0, -b.top / span)) : 0;
+        };
+        const hr = this.heroRef.current ? this.heroRef.current.getBoundingClientRect() : null;
+        const ex = hr ? Math.min(1, Math.max(0, -hr.top / window.innerHeight)) : 0;
+        if (Math.abs(ex - (this.state.ex || 0)) > 0.002) this.setState({ ex });
+        const pp = prog(this.boxRef), pp2 = prog(this.twmRef);
+        const vh = window.innerHeight;
+        const tb = this.twbRef.current ? this.twbRef.current.getBoundingClientRect() : null;
+        const rv = tb ? Math.min(1, Math.max(0, (vh - tb.top) / vh)) : 1;
+        const tv = this.twvRef.current ? this.twvRef.current.getBoundingClientRect() : null;
+        const vOn = this.state.vOn || (tv ? tv.top < vh * 0.8 : false);
+        const st = this.state;
+        if (Math.abs(pp - st.pp) > 0.001 || Math.abs(pp2 - st.pp2) > 0.001 || Math.abs(rv - st.rv) > 0.001 || vOn !== st.vOn) this.setState({ pp, pp2, rv, vOn });
+      });
+    };
+    document.addEventListener('scroll', this.onScroll, true);
+    this.onScroll();
+    this.inT = setTimeout(() => this.setState({ hIn: true }), 120);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('scroll', this.onScroll, true);
+  }
+  boxRef = React.createRef();
+  heroRef = React.createRef();
+  heroVals(narrow, mid) {
+    const s = this.state, on = !!s.hIn, ex = s.ex || 0;
+    const tab = !narrow && mid;
+    return {
+      heroRef: this.heroRef,
+      hMinH: narrow ? '0px' : 'max(760px,100svh)', hShowMedia: !narrow, hShowMarks: !mid,
+      hImgScale: on ? '1.02' : '1.1', hImgTr: `0 ${(ex * 90).toFixed(1)}px`,
+      hWash: tab ? 'linear-gradient(90deg,#f5f2fb 0%,color-mix(in srgb,#f5f2fb 90%,transparent) 48%,color-mix(in srgb,#f5f2fb 30%,transparent) 72%,transparent 90%)' : 'linear-gradient(90deg,#f5f2fb 0%,color-mix(in srgb,#f5f2fb 94%,transparent) 38%,color-mix(in srgb,#f5f2fb 62%,transparent) 52%,transparent 68%)',
+      hSheetW: narrow ? '100%' : tab ? '78%' : '58%', hSheetTr: `0 ${(ex * -140).toFixed(1)}px`,
+      hSheetMask: narrow ? 'none' : 'linear-gradient(90deg,#000 70%,transparent)',
+      hRuleClip: on ? 'inset(0)' : 'inset(0 100% 0 0)', hMarginScale: on ? '1' : '1 0',
+      hMarginL: narrow ? '30px' : 'clamp(56px,6vw,92px)', hIn: on ? 1 : 0, hMkTr: on ? '0 0' : '0 6px', hDraw: on ? 0 : 1,
+      hInMinH: narrow ? '0px' : 'max(760px,100svh)',
+      hInPad: narrow ? '140px 20px 36px 44px' : 'clamp(146px,15vh,170px) clamp(20px,4vw,56px) 56px calc(28px + clamp(56px,6vw,92px))',
+      hInTr: narrow ? 'none' : `0 ${(ex * -120).toFixed(1)}px`,
+      hCopyMax: narrow ? 'none' : tab ? '600px' : 'min(840px,56vw)',
+      hCtaDir: narrow ? 'column' : 'row',
+      hStatWrap: narrow ? 'nowrap' : 'wrap', hStatJustify: narrow ? 'space-between' : 'flex-start',
+      hStatGap: narrow ? '14px 26px' : 'clamp(22px,3vw,48px)', hStatMt: narrow ? '36px' : '44px',
+      hStatSize: narrow ? '24px' : 'clamp(28px,2.4vw,38px)', hStatDd: narrow ? '12px' : '13.5px',
+      hTickR: narrow ? '-4px' : '-30px', hTickT: narrow ? '-16px' : '-10px', hTickW: narrow ? '16px' : '26px', hTickH: narrow ? '13px' : '20px',
+      hDeckPos: mid ? 'relative' : 'absolute', hDeckW: mid ? '100%' : 'calc(3 * clamp(170px,12.5vw,210px) - 40px)', hDeckMargin: mid ? '60px 0 0' : '0', hDeckR: mid ? 'auto' : 'clamp(20px,4vw,56px)', hDeckB: mid ? 'auto' : '48px',
+      cardW: narrow ? '150px' : mid ? '170px' : 'clamp(170px,12.5vw,210px)',
+    };
+  }
+  twmRef = React.createRef();
+  twbRef = React.createRef();
+  twvRef = React.createRef();
+
+  extraVals(narrow) {
+    const s = this.state;
+    const k = 1 - s.rv, ke = k * k;
+    const fly = [
+      ['assets/images/fly1.webp', { l: '6%', t: '9%' }, -60, -50, -6, -20],
+      ['assets/images/fly2.webp', { r: '6%', t: '7%' }, 60, -50, 5, 20],
+      ['assets/images/fly3.avif', { l: '9%', b: '7%' }, -60, 50, 4, 18],
+      ['assets/images/fly4.webp', { r: '8%', b: '9%' }, 60, 50, -5, -18],
+    ].map(([img, p, tx, ty, r0, rk]) => ({
+      img, l: p.l || 'auto', r: p.r || 'auto', t: p.t || 'auto', b: p.b || 'auto',
+      tr: `${(ke * tx).toFixed(2)}vw ${(ke * ty).toFixed(2)}vh`, rot: (r0 + k * rk).toFixed(2) + 'deg',
+    }));
+    const noteData = [
+      ['#ffd93d', -4, 'I used to buy on tips from friends. Now I read the balance sheet before I buy a single share.', 'Student, Fundamental Analysis Edge', 'Tips → research'],
+      ['#FFB8C8', 3, 'The chart lessons finally made support and resistance click. I trade with a plan and a stop-loss now.', 'Student, Technical Analysis Power', 'Plan first'],
+      ['#BDE8D2', -2, 'I started my first SIP in week two and finally understand what an expense ratio is.', 'Student, Mutual Funds Magic', 'First SIP'],
+      ['#C9D6FF', 5, 'Options looked like gambling to me. Now I know exactly what I am risking on every trade.', 'Student, Futures & Options Mastery', 'Risk defined'],
+      ['#FFD6A5', -3, 'Complete beginner to opening my demat account and buying my first stock — in one course.', 'Student, Stock Market Mastery', 'First share'],
+      ['#fff', 2, 'Patient, clear and always on time. One-to-one made all the difference.', 'Student, Value Investing Secrets', '★★★★★'],
+    ];
+    const notes = noteData.map((n, i) => {
+      const hv = s.hovN === i, on = s.vOn || narrow;
+      return {
+        bg: n[0], q: n[2], who: n[3], tag: n[4],
+        rot: hv ? '0deg' : n[1] + 'deg', op: on ? 1 : 0,
+        tr: !on ? '0 -40px' : hv ? '0 -6px' : '0 0', sc: on ? 1 : 1.12, d: hv ? '0ms' : (200 + i * 130) + 'ms',
+        margin: narrow ? '0 0 clamp(28px,3vw,44px)' : (i === 1 ? '40px 0 clamp(28px,3vw,44px)' : i === 4 ? '0 0 clamp(28px,3vw,44px) 18px' : '0 0 clamp(28px,3vw,44px)'),
+        pad: i === 3 ? '30px 26px 34px' : '30px 26px 22px',
+        shadow: hv ? '0 36px 40px -26px color-mix(in srgb,#140f2a 60%,transparent)' : '0 22px 30px -22px color-mix(in srgb,#140f2a 55%,transparent),0 1px 1px color-mix(in srgb,#140f2a 12%,transparent)',
+        onEnter: () => this.setState({ hovN: i }), onLeave: () => this.setState({ hovN: -1 }),
+      };
+    });
+    const faqData = [
+      ['How does the free first class work?', 2, "It's a real class with a mentor matched to your course and level, plus a short check of what you already know. No card needed, and no obligation to continue."],
+      ['Which course should I start with?', 3, 'If you are new to the market, start with Stock Market Mastery or Mutual Funds Magic. If you already invest, the free call helps you pick between the analysis courses and Futures & Options.'],
+      ['Online or in class?', 2, 'Both. Online classes use a shared screen with live charts. Most students mix the two.'],
+      ['Do I need a demat account first?', 2, 'No. We walk you through opening one during the beginner course, and you can practise on paper before using real money.'],
+      ['Will you give me stock tips?', 3, 'No. The courses teach you how to analyse and decide for yourself. Investing carries market risk, and every decision stays yours.'],
+      ['Can I pay for courses one at a time?', 1, 'Yes. Each course is priced on its own, or you can take all six for ₹48,600.'],
+    ];
+    const open = s.faqOpen;
+    const faqs = faqData.map((f, i) => {
+      const o = open.includes(i);
+      return {
+        n: i + 1, q: f[0], m: f[1], a: f[2], exp: o ? 'true' : 'false', rows: o ? '1fr' : '0fr', dash: o ? 0 : 1,
+        onToggle: () => this.setState(st => ({ faqOpen: st.faqOpen.includes(i) ? st.faqOpen.filter(x => x !== i) : [...st.faqOpen, i] })),
+      };
+    });
+    return {
+      twbRef: this.twbRef, twvRef: this.twvRef, flyPhotos: fly, showFly: s.w >= 1200,
+      twbLoop: s.rv > 0.6 || narrow ? 0 : 1,
+      twbPad: narrow ? '96px 20px' : 'clamp(80px,10vh,120px) clamp(20px,4vw,56px)',
+      twbStatsDir: narrow ? 'column' : 'row',
+      notes,
+      faqs, faqScore: faqData.reduce((a, f, i) => a + (open.includes(i) ? f[1] : 0), 0), faqTotal: faqData.reduce((a, f) => a + f[1], 0),
+      faqCols: narrow ? '1fr' : 'minmax(0,.75fr) minmax(0,1.25fr)',
+      faqPad: narrow ? '80px 20px' : 'clamp(90px,11vw,150px) clamp(20px,4vw,56px)',
+      faqSidePos: narrow ? 'relative' : 'sticky',
+      faqBtnCols: narrow ? '34px minmax(0,1fr) 30px' : '44px minmax(0,1fr) 44px',
+      faqAPad: narrow ? '0px' : '54px',
+      paperLine: narrow ? 'none' : 'linear-gradient(90deg,transparent calc(100% - 64px),color-mix(in srgb,#C8283E 45%,transparent) calc(100% - 64px) calc(100% - 63px),transparent calc(100% - 63px))',
+    };
+  }
+
+  renderVals() {
+    const s = this.state, w = s.w;
+    const narrow = w < 810, wide = !narrow, mid = w < 1100;
+    const ink = '#1d1830', mut = 'color-mix(in srgb,#6d6784 80%,#1d1830)';
+    const raw = [
+      ['Stock Market Mastery', 'From Beginner to Confident Investor (New Edition)', 5500, 'Beginner', 'assets/images/pv1.webp'],
+      ['Mutual Funds Magic', 'Build Wealth the Smart & Simple Way', 4800, 'Beginner', 'assets/images/pv2.jpg'],
+      ['Futures & Options Mastery', 'Advanced Strategies for Consistent Profits', 15000, 'Advanced', 'assets/images/pv3.webp'],
+      ['Value Investing Secrets', 'Spot Undervalued Stocks Like a Pro', 4300, 'Intermediate', 'assets/images/pv4.jpg'],
+      ['Technical Analysis Power', 'Read Charts & Trade with Precision', 9000, 'Intermediate', 'assets/images/pv5.webp'],
+      ['Fundamental Analysis Edge', 'Decode Companies & Invest with Confidence', 10000, 'Intermediate', 'assets/images/pv6.webp'],
+    ];
+    const inr = n => '₹' + n.toLocaleString('en-IN');
+    const courses = raw.map((r, i) => ({
+      n: String(i + 1).padStart(2, '0'), name: r[0], sub: r[1], price: inr(r[2]), level: r[3],
+      dash: s.hov === i ? 0 : 1, pad: s.hov === i ? '14px' : '0px', goBg: s.hov === i ? '#ffd93d' : '#fff',
+      onEnter: () => this.setState({ hov: i }),
+      onPick: () => this.setState({ fCourse: r[0] }),
+    }));
+    const stepsRaw = [
+      ['Free counselling call', 'A 30-minute call to find the right course for your level — no cost, no commitment.', 'Day 1', 'assets/images/step1.webp'],
+      ['Matched with a mentor', 'We pair you with a mentor for your course and schedule. You meet them before you pay.', 'Day 2', 'assets/images/step2.webp'],
+      ['A plan on paper', 'Your course goals, week by week, written down and shared with you.', 'Week 1', 'assets/images/step3.webp'],
+      ['Progress you can see', 'A short recap after every class and a check-in every few weeks on what you can now do on your own.', 'Every week', 'assets/images/step4.webp'],
+    ];
+    const nS = stepsRaw.length;
+    const u2 = Math.min(1, Math.max(0, (s.pp2 - 0.05) / 0.82));
+    const curStep = narrow ? 0 : Math.min(nS - 1, Math.max(0, Math.floor(u2 * nS + 0.05)));
+    const stepFigs = stepsRaw.map((r, i) => {
+      const k = narrow ? (i === 0 ? 1 : 0) : Math.min(1, Math.max(0, u2 * nS - i + 0.55));
+      return {
+        img: r[3], num: String(i + 1), when: r[2], z: i + 1,
+        clip: i === 0 || narrow ? 'none' : `polygon(${(118 - k * 136).toFixed(2)}% 0,118% 0,118% 100%,${(100 - k * 136).toFixed(2)}% 100%)`,
+        op: narrow && i > 0 ? 0 : 1, sc: (1.12 - k * 0.12).toFixed(4),
+      };
+    });
+    const steps = stepsRaw.map((r, i) => {
+      const cur = i === curStep, done = i < curStep;
+      return {
+        n: String(i + 1).padStart(2, '0'), title: r[0], desc: r[1], when: r[2],
+        noColor: cur ? '#fff' : 'color-mix(in srgb,#fff 55%,transparent)',
+        bColor: cur || done ? '#fff' : 'color-mix(in srgb,#fff 55%,transparent)',
+        tick: done ? 0 : 1, rows: cur || narrow ? '1fr' : '0fr', mt: cur || narrow ? '8px' : '0px',
+        wBg: cur ? '#ffd93d' : 'transparent', wColor: cur ? ink : 'color-mix(in srgb,#fff 60%,transparent)',
+        wBorder: cur ? '#ffd93d' : 'color-mix(in srgb,#fff 22%,transparent)',
+        onPick: () => this.setState({ step: i }),
+      };
+    });
+    const lbl = (key, filled) => {
+      const up = filled || s.focus === key;
+      return { y: up ? '0 -11px' : '0 0', sc: up ? '0.74' : '1', c: up ? '#2a1f5c' : mut };
+    };
+    const ln = lbl('name', s.fName), lc = lbl('contact', s.fContact), lco = lbl('course', s.fCourse), ll = lbl('level', s.fLevel);
+    const sel = raw.find(r => r[0] === s.fCourse);
+    const courseTotal = s.fCourse === 'All six courses' ? '₹48,600' : sel ? inr(sel[2]) : '';
+    const hovC = raw[Math.max(0, s.hov)];
+    const u = Math.min(1, Math.max(0, (s.pp - 0.04) / 0.8));
+    const grid = [[17, 25, -3], [50, 23, 2], [83, 26, -2], [17, 75, 2], [50, 77, -2], [83, 74, 3]];
+    const sCards = raw.map((r, i) => {
+      const ki = Math.min(1, Math.max(0, u * 7.2 - i * 1.05)), e = 1 - Math.pow(1 - ki, 3);
+      const [gx, gy, gr] = grid[i], hv = s.hovS === i;
+      const y = 104 - i * 2.4 + (gy - 104 + i * 2.4) * e;
+      return {
+        n: String(i + 1).padStart(2, '0'), name: r[0], level: r[3], price: inr(r[2]), img: r[4], href: ["Stock Market Mastery.dc.html","Mutual Funds Magic.dc.html","Futures and Options Mastery.dc.html","Value Investing Secrets.dc.html","Technical Analysis Power.dc.html","Fundamental Analysis Edge.dc.html"][i],
+        pos: narrow ? 'relative' : 'absolute', w: narrow ? 'auto' : 'min(29cqw,36cqh)',
+        tr: narrow ? 'none' : `calc(50cqw + ${((gx - 50) * e).toFixed(3)}cqw - 50%) calc(${y.toFixed(3)}cqh - 50%)`,
+        rot: narrow ? '0deg' : (((i - 2.5) * 5 * (1 - e) + gr * e).toFixed(3) + 'deg'),
+        sc: hv ? 1.04 : 1, z: hv ? 20 : 'auto', dash: hv ? 0 : 1, imgSc: hv ? 1.07 : 1,
+        shadow: hv ? '0 40px 70px -30px color-mix(in srgb,#140f2a 65%,transparent)' : '0 26px 50px -30px color-mix(in srgb,#140f2a 55%,transparent),0 1px 0 color-mix(in srgb,#1d1830 8%,transparent)',
+        onEnter: () => this.setState({ hovS: i }), onLeave: () => this.setState({ hovS: -1 }),
+        onPick: () => this.setState({ fCourse: r[0] }),
+      };
+    });
+    const deckImgs = ['assets/images/pv1.webp', 'assets/images/card2.jpg', 'assets/images/pv3.webp'];
+    const deck = [0, 4, 2].map((ci, i) => {
+      const r = raw[ci], hv = s.hovCard === i, fl = s.flip === i, up = hv || fl;
+      return {
+        name: r[0], sub: r[1], price: inr(r[2]), level: r[3], img: deckImgs[i], flipped: fl ? 'true' : 'false',
+        rot: up ? '0deg' : ((i - 1) * 6) + 'deg', ty: up ? '0 -30px' : (i === 1 ? '0 -18px' : '0 0'), z: up ? 3 : 1,
+        imgScale: hv ? '1.06' : '1', flipT: fl ? 'rotateY(180deg)' : 'none',
+        frontVis: fl ? 'hidden' : 'visible', backVis: fl ? 'visible' : 'hidden', btnZ: fl ? 0 : 2,
+        onEnter: () => this.setState({ hovCard: i }), onLeave: () => this.setState({ hovCard: -1 }),
+        onFlip: () => this.setState({ flip: s.flip === i ? -1 : i }),
+        onEnroll: () => this.setState({ fCourse: r[0] }),
+      };
+    });
+    return {
+      ...this.extraVals(narrow),
+      sCards, boxRef: this.boxRef, twmRef: this.twmRef, stepFigs,
+      twmH: narrow ? 'auto' : `calc(${nS} * 90vh + 60vh)`, twmGridH: narrow ? 'auto' : '100%',
+      twmPad: narrow ? '80px 20px' : 'clamp(70px,11vh,120px) clamp(20px,4vw,56px)',
+      twmMediaH: narrow ? 'auto' : 'min(72vh,640px)', twmMediaAR: narrow ? '4 / 3' : 'auto', twmMediaOrder: narrow ? -1 : 0,
+      boxH: narrow ? 'auto' : '320vh', boxStagePos: narrow ? 'relative' : 'sticky', boxStageH: narrow ? 'auto' : '100svh',
+      boxStageDisplay: narrow ? 'block' : 'grid',
+      boxStagePad: narrow ? '72px 20px 64px' : 'clamp(80px,9vh,110px) clamp(20px,4vw,56px) clamp(40px,5vh,64px)',
+      deckCt: narrow ? 'normal' : 'size', deckDisplay: narrow ? 'grid' : 'block', deckMt: narrow ? '36px' : '0',
+      boxOpacity: Math.max(0, 1 - u * 1.4), boxTr: `-50% ${(u * 30).toFixed(2)}cqh`,
+      narrow, wide, deck,
+      ...this.heroVals(narrow, mid),
+      showNav: w >= 980, showTel: w >= 1180,
+      nav: [['Courses', 'Courses.dc.html', '▾'], ['Mentors', 'Mentors.dc.html'], ['Results', 'Results.dc.html'], ['Resources', 'Resources.dc.html'], ['Contact', 'Contact.dc.html']]
+        .map((n, i) => ({ label: n[0], href: n[1], car: n[2] || '', dash: 1 })),
+      chips: ['Beginner to advanced', 'Six courses', 'Online or in class'],
+      headCols: narrow ? '1fr' : 'auto 1fr', noteAlign: narrow ? 'start' : 'end',
+      rowCols: narrow ? '28px minmax(0,1fr)' : mid ? '40px minmax(0,1fr) minmax(0,1fr) 110px 90px' : '56px minmax(0,1fr) minmax(0,1.1fr) 140px 96px',
+      courses,
+      pickAll: () => this.setState({ fCourse: 'All six courses' }),
+      onListMove: e => {
+        const el = this.listRef.current; if (!el) return;
+        const b = el.getBoundingClientRect();
+        this.setState({ mx: e.clientX - b.left, my: e.clientY - b.top });
+      },
+      onListLeave: () => this.setState({ hov: -1 }),
+      listRef: this.listRef,
+      pvX: (s.mx + 28) + 'px', pvY: (s.my - 160) + 'px',
+      pvOpacity: s.hov >= 0 ? 1 : 0, pvScale: s.hov >= 0 ? 1 : 0.85, pvImg: hovC[4],
+      steps, stepImg: stepsRaw[s.step][3], stepNum: String(s.step + 1), stepWhen: stepsRaw[s.step][2],
+      twmCols: narrow ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.05fr)',
+      bandClip: narrow ? 'none' : 'polygon(0 9%,100% 0,100% 91%,0 100%)',
+      ctaCols: narrow ? 'minmax(0,1fr)' : 'minmax(0,1.15fr) minmax(0,0.85fr)',
+      ctaClip: narrow ? 'polygon(0 0,100% 0,100% 100%,0 100%)' : 'polygon(0 0,78% 0,58% 100%,0 100%)',
+      formRow: narrow ? '1fr' : '1fr 1fr',
+      notSent: !s.sent, sent: s.sent,
+      fName: s.fName, fContact: s.fContact, fCourse: s.fCourse, fLevel: s.fLevel,
+      courseOpts: [...raw.map(r => r[0]), 'All six courses', 'Not sure yet'],
+      levelOpts: ['Complete beginner', 'Some experience', 'Active investor / trader'],
+      onName: e => this.setState({ fName: e.target.value }),
+      onContact: e => this.setState({ fContact: e.target.value }),
+      onCourse: e => this.setState({ fCourse: e.target.value }),
+      onLevel: e => this.setState({ fLevel: e.target.value }),
+      focusName: () => this.setState({ focus: 'name' }), focusContact: () => this.setState({ focus: 'contact' }),
+      blurField: () => this.setState({ focus: '' }),
+      nameBorder: s.focus === 'name' ? ink : '#ded8ee', contactBorder: s.focus === 'contact' ? ink : '#ded8ee',
+      nameLblY: ln.y, nameLblS: ln.sc, nameLblColor: ln.c,
+      contactLblY: lc.y, contactLblS: lc.sc, contactLblColor: lc.c,
+      courseLblY: lco.y, courseLblS: lco.sc, courseLblColor: lco.c,
+      levelLblY: ll.y, levelLblS: ll.sc, levelLblColor: ll.c,
+      courseTotal,
+      onSubmit: e => { e.preventDefault(); this.setState({ sent: true }); },
+      ftCols: narrow ? '1fr' : 'minmax(0,1fr) minmax(0,1.4fr) minmax(0,1fr)',
+      ftNavCols: narrow ? '1fr 1fr' : 'repeat(3,minmax(0,1fr))',
+      ftPadR: narrow ? '20px' : 'calc(clamp(20px,4vw,56px) + 60px)',
+      ftNav: [
+        { title: 'Courses', links: raw.map((r, i) => ({ label: r[0], href: ["Stock Market Mastery.dc.html","Mutual Funds Magic.dc.html","Futures and Options Mastery.dc.html","Value Investing Secrets.dc.html","Technical Analysis Power.dc.html","Fundamental Analysis Edge.dc.html"][i] })) },
+        { title: 'The Investor Brain', links: [['Mentors', 'Mentors.dc.html'], ['Results', 'Results.dc.html'], ['Resources', 'Resources.dc.html']].map(l => ({ label: l[0], href: l[1] })) },
+        { title: 'Help', links: [['Book a class', '#enroll'], ['FAQ', 'Home.dc.html'], ['Contact', 'Contact.dc.html'], ['Privacy & terms', 'Legal.dc.html']].map(l => ({ label: l[0], href: l[1] })) },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
